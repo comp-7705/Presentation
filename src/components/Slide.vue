@@ -89,13 +89,22 @@ This is the second slide.
                     </section>
                     <section data-markdown>
                         <!-- Contents of v-html are inserted as plain HTML -->
-                        <div v-html="md"></div>
+                        <textarea data-template>
+                            ### Slide1
+                            nice to meet **you**
+                            
+                            A paragraph with some text and a [link](https://hakim.se).
+                            * hello
+                            * great
+                            * no
+                        </textarea>
                     </section>
                     <section>
                         <p>Search content.</p>
                         Press CTRL+Shift+F to search slide content.
                     </section>
                     <section>
+                        <img src="../../public/assets/token-distri.png" style="margin: 0 auto;">
                         <p>Notes</p>
                         <p>
                             Press S on your keyboard to enter the speaker notes
