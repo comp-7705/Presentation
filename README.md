@@ -1,4 +1,4 @@
-# (Tentative) Project Presentation
+# COMP7705 Project Presentation
 
 Idea: Using Reveal.js and Tailwindcss to present projects. Building a minimal and completely static website where only content matters. Embedding Reveal.js with Vue.js to edit slides faster.
 
@@ -12,7 +12,14 @@ Related techniques:
 
 # TODO
 
-1. [Algolia Vue InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/vue/)
+Thursday:
+
+1. 8 June
+2. 15 June
+3. 29 June
+4. 6 July
+5. 13 July
+6. 20 July
 
 # Vue 3 + Vite
 
