@@ -1,34 +1,12 @@
 <script setup>
-// Reveal.js and plugins
-import "reveal.js/dist/reveal.css";
-import "reveal.js/dist/theme/simple.css";
-import "highlight.js/styles/atom-one-dark.css";
-import Reveal from "reveal.js";
-import Highlight from "reveal.js/plugin/highlight/highlight.esm.js";
-import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
-import Search from "reveal.js/plugin/search/search.esm.js";
-import Notes from "reveal.js/plugin/notes/notes.esm.js";
-import Math from "reveal.js/plugin/math/math.esm.js";
-import Zoom from "reveal.js/plugin/zoom/zoom.esm.js";
-// Vue
-import { onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { loadReveal } from "@js/slide.js";
 
 const route = useRoute();
 console.log("Id from route", route.params.id);
 
-// Init Reveal.js after the component is mounted
 const n = 3;
-
-onMounted(() => {
-    let deck = new Reveal({
-        plugins: [Highlight, Markdown, Search, Notes, Math, Zoom],
-    });
-    deck.initialize({
-        history: true,
-        slideNumber: "c/t",
-    });
-});
+loadReveal();
 
 const md = `
 ## Markdown support - Slide1
@@ -50,7 +28,12 @@ This is the second slide.
             <div class="slides">
                 <section>Title</section>
                 <section>
-                    <section>Test plugins</section>
+                    <section>
+                        <div class="flex items-center justify-center">
+                            Test plugins
+                            <img class="w-1/3" src="@images/HKU-Logo.jpg" />
+                        </div>
+                    </section>
                     <section data-auto-animate>
                         Syntax highlight with auto animation
                         <pre data-id="code-animation">
@@ -104,7 +87,6 @@ This is the second slide.
                         Press CTRL+Shift+F to search slide content.
                     </section>
                     <section>
-                        <img src="../../public/assets/token-distri.png" style="margin: 0 auto;">
                         <p>Notes</p>
                         <p>
                             Press S on your keyboard to enter the speaker notes

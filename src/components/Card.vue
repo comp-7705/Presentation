@@ -16,7 +16,7 @@ export default {
             <p class="text-lg font-medium text-gray-900">
                 {{ card.title }}
             </p>
-            <p class="text-gray-600 text-justify">{{ card.description }}</p>
+            <!-- <p class="text-gray-600 text-justify">{{ card.description }}</p> -->
         </div>
     </div>
 </template>

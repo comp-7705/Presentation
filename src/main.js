@@ -2,21 +2,45 @@
 import "./style.css";
 import App from "./App.vue";
 import Home from "./components/Home.vue";
-import Slide from "./components/Slide.vue";
+
 // import vue related libraries
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
+
 // import the fontawesome core
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+// import slides
+import { dates } from "@js/home.js";
+import Sample from "@slides/Sample.vue";
+
 // Define routes
 const routes = [
-    { path: "/", component: Home },
-    { path: "/card/:id", name: "card", component: Slide },
+    {
+        path: "/",
+        component: Home,
+        beforeEnter: (to, from) => {
+            // Not directly access the home page
+            if (from.fullPath !== "/") {
+                location.reload();
+            }
+            // console.log(to, from);
+        },
+    },
+    { path: "/Sample", component: Sample },
 ];
+
+// Dynamically import all slides
+for (const _ of dates) {
+    const date = _.replaceAll(" ", "");
+    routes.push({
+        path: `/${date}`,
+        component: () => import(`./slides/${date}.vue`),
+    });
+}
 
 // Create the router instance and pass the `routes` option
 const router = createRouter({

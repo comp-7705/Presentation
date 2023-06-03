@@ -21,6 +21,7 @@ export default {
     <a
         :href="link"
         class="flex items-center space-x-2 hover:text-gray-600 hover:underline"
+        target="_blank"
     >
         <font-awesome-icon :icon="icon" />
         <!-- hidden when screen size is too small -->
