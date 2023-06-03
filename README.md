@@ -12,7 +12,7 @@ Related techniques:
 
 # TODO
 
-Thursday:
+Thursday 2:40PM to 4:40PM:
 
 1. 8 June
 2. 15 June
