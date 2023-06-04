@@ -12,8 +12,8 @@ export default defineConfig({
         alias: {
             "@images": "/src/assets/images",
             "@js": "/src/assets/js",
-            "@components": "/src/components",
             "@slides": "/src/slides",
+            "@slides-comps": "/src/slides/components",
         },
     },
 });

@@ -4,7 +4,7 @@ import logoUrl from "@images/HKU-Logo.jpg";
 
 const title =
     "Handwritten Mathematical Expression Recognition Based on Encoder-decoder Neural Network";
-const github = "https://github.com/comp-7705/7705-HMER";
+const github = "https://github.com/comp-7705/Presentation";
 const webpage = "https://wp.cs.hku.hk/2022/msp22015";
 </script>
 
@@ -30,5 +30,3 @@ const webpage = "https://wp.cs.hku.hk/2022/msp22015";
         </div>
     </div>
 </template>
-
-<style></style>

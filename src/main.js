@@ -14,6 +14,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // import slides
+import { setStyle } from "@js/slide.js";
 import { dates } from "@js/home.js";
 import Sample from "@slides/Sample.vue";
 
@@ -25,7 +26,7 @@ const routes = [
         beforeEnter: (to, from) => {
             // Not directly access the home page
             if (from.fullPath !== "/") {
-                location.reload();
+                window.location.reload();
             }
             // console.log(to, from);
         },
@@ -62,3 +63,5 @@ library.add(fab);
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.mount("#app");
+
+setStyle();
