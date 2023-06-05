@@ -136,6 +136,44 @@ loadReveal();
                             </div>
                         </div>
                     </section>
+                    <section>
+                        <h2>Three Phases</h2>
+                        <div style="align-items: center;">
+                            <blockquote>
+                                Phase1: Data Collection & PreProcessing
+                                <p>The preprocessing will involve data cleaning, normalization, resizing, and augmentation.</p>
+                            </blockquote> 
+                            <p class="text-center">↓</p>
+
+                            <blockquote>
+                                Phase2: Model Development & Evaluation
+                                <p>A model with novel architectural components will be developed based on the encoder-decoder neural network.</p>
+                            </blockquote> 
+                            <p class="text-center">↓</p>
+
+                            <blockquote>
+                                Phase3: Continual Optimization and Model Deployment
+                                <p>Overcome the corner cases and maximizing recognition accuracy</p>
+                            </blockquote> 
+                        </div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                        <h2>Encoder</h2>
+                        <p>The fundamental concept of DenseNet involves linking all networks in a feed-forward manner, which amplifies the flow of information between layers through direct connections between each layer and all subsequent layers.</p>
+                        <code>
+                            \begin{align} 
+                                x_{\ell}=H_{\ell}\left(\left[x_0 ; x_1 ; \ldots ; x_{\ell-1}\right]\right)
+                            \end{align}
+                        </code>
+
+
+                        Here, $H_{\ell}(\cdot)$ denotes a composite function consisting of three consecutive layers (a batch normalization layer, followed by a ReLU layer and a $3 \times 3$ convolution layer) and $\left[{x}_{0} ; {x}_{1} ; \ldots ; {x}_{\ell-1}\right]$  represents the concatenation operation of all the output features.
+                        
+                        
+                        Furthermore, a $1 \times 1$ convolutional layer can be incorporated into the encoder part to adjust the output image feature dimension to match the embedding dimension for further processing.
+                    </textarea>
+                    </section>
                 </section>
                 <HSection text="Thank you!" />
             </div>
