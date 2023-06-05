@@ -98,7 +98,7 @@ loadReveal();
                         <Image
                             :src="imgOCR"
                             alt="OCR"
-                            class="w-3/5"
+                            class="w-2/5"
                         />
                     </VSection>
                 </section>
@@ -141,7 +141,7 @@ loadReveal();
                         <div style="align-items: center;">
                             <blockquote>
                                 Phase1: Data Collection & PreProcessing
-                                <p>The preprocessing will involve data cleaning, normalization, resizing, and augmentation.</p>
+                                <p>Data cleaning, normalization, resizing, and augmentation.</p>
                             </blockquote> 
                             <p class="text-center">↓</p>
 
@@ -167,12 +167,87 @@ loadReveal();
                             \end{align}
                         </code>
 
-
-                        Here, $H_{\ell}(\cdot)$ denotes a composite function consisting of three consecutive layers (a batch normalization layer, followed by a ReLU layer and a $3 \times 3$ convolution layer) and $\left[{x}_{0} ; {x}_{1} ; \ldots ; {x}_{\ell-1}\right]$  represents the concatenation operation of all the output features.
-                        
+                        Here, $H_{\ell}(\cdot)$ denotes a composite function consisting of three consecutive layers (a batch normalization layer, followed by a ReLU layer and a $3 \times 3$ convolution layer) and $[x_0;x_1;\ldots;x_{\ell-1}]$ represents the concatenation operation of all the output features.
                         
                         Furthermore, a $1 \times 1$ convolutional layer can be incorporated into the encoder part to adjust the output image feature dimension to match the embedding dimension for further processing.
                     </textarea>
+                    </section>
+                    <section>
+                        <h2>Decoders</h2>
+                        <div class="columns-3">
+                            <div class="w-full">
+                                <p>BTTR Decoder(2021)</p>
+                                <p><span class="red">B</span>idirectionally <span class="red">T</span>rained <span class="red">TR</span>ansformer</p>
+                                <img src="/src/assets/images/June8/bttr.png" class="w-2/3">
+                            </div>
+                            <div class="w-full">
+                                <p>SAN Decoder(2022)</p>
+                                <p><span class="red">S</span>yntax-<span class="red">A</span>ware <span class="red">N</span>etwork</p>
+                                <img src="/src/assets/images/June8/san.png" class="w-2/3">
+                            </div>
+                            <div class="w-full">
+                                <p>CoMER Decoder(2022)</p>
+                                <p><span class="red">C</span>overage information in the transfor<span class="red">MER</span> decoder</p>
+                                <img src="/src/assets/images/June8/comer.png">
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>CROHME Dataset</h2>
+                        <div class="columns-2">
+                            <div class="w-4/5" style="text-align: center;">
+                                CROHME: <span class="red">C</span>ompetition on <span class="red">R</span>ecognition of <span class="red">O</span>nline <span class="red">H</span>andwritten <span class="red">M</span>athematical <span class="red">E</span>xpressions,which currently is most widely used benchmark dataset for HMER.
+                            </div>
+                            <table class="w-4/5" style="font-size:20px;">
+                                <thead>
+                                    <tr>
+                                        <th class="border border-slate-300"></th>
+                                        <th class="border border-slate-300">Number of Images</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-slate-300">Training Set</td>
+                                        <td class="border border-slate-300">8835</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300">Test 2014</td>
+                                        <td class="border border-slate-300">986</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300">Test 2016</td>
+                                        <td class="border border-slate-300">1147</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300">Test 2019</td>
+                                        <td class="border border-slate-300">1199</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-slate-300">Total Test Set</td>
+                                        <td class="border border-slate-300">3332</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p></p>
+                        <img style="margin:0 auto;" class="w-3/4" src="src/assets/images/June8/dataset.jpg"/>
+                    </section>
+                    <section>
+                        <h2>Data Distribution</h2>
+                        <div class="columns-2 w-2/3" style="margin:0 auto;">
+                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/token-distri.png"/>
+                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-h-distri.png"/>
+                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-len-distri.png"/>
+                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-w-distri.png"/>
+                        </div>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Expression Recognition Rate Comparison
+                            * (Number1, Number2): Number1 is taken from the papers. Number2 is our reproduced result. Single value indicates that Number1 == Number2.
+                            * ≤ 1error and ≤ 2error represent expression recognition rate when 1 to 2 structural or symbol errors can be tolerated.
+                            <img style="margin:0 auto;" class="w-2/3" src="src/assets/images/June8/model-comparison.jpg"/>
+                        </textarea>
                     </section>
                 </section>
                 <HSection text="Thank you!" />
