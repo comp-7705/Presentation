@@ -3,7 +3,7 @@ import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
 import { gallery } from "@js/utils.js";
 // Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
-    import.meta.glob("../assets/images/June8/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
+    import.meta.glob("/src/assets/images/June8/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
         eager: true,
         as: "url",
     })
