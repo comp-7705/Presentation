@@ -18,13 +18,10 @@ section {
 h2 {
     border-bottom: 3px solid rgb(106, 0, 95);
 }
-blockquote{
+
+blockquote {
     text-align: center;
     font-size: xx-large;
-    background-color: aqua;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-}
-.red{
-    color: red;
 }

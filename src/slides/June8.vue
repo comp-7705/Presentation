@@ -1,9 +1,15 @@
 <script setup>
 import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
-import imgHMER from "@images/June8/hmer.jpg";
-import imgTradition from "@images/June8/tradition.png";
-import imgOCR from "@images/June8/ocr.jpg";
-import imgTedious from "@images/June8/tedious.png"
+import { gallery } from "@js/utils.js";
+// Import all images from the Home folder, only relative paths here, issue of vite
+const imagePaths = Object.values(
+    import.meta.glob("../assets/images/June8/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
+        eager: true,
+        as: "url",
+    })
+);
+const im = gallery(imagePaths);
+
 loadReveal();
 </script>
 
@@ -21,7 +27,7 @@ loadReveal();
                             extracting mathematical expressions from handwritten
                             input.
                         </p>
-                        <Image :src="imgHMER" alt="hmer" class="w-2/5" />
+                        <Image :src="im['hmer']" alt="hmer" class="w-2/5" />
                     </VSection>
                     <VSection>
                         <h2>Definition of HMER</h2>
@@ -30,12 +36,12 @@ loadReveal();
                             converted into LaTeX format, which facilitates
                             computer processing.
                         </p>
-                        <code style="font-size:x-large;">
+                        <code style="font-size: x-large">
                             \begin{align} y &= (x+1)^2 \\ &= x^2+2x+1
                             \end{align}
                         </code>
                         <p class="text-center">↓</p>
-                        <pre style="font-size:xx-large; width: 60%;">
+                        <pre style="font-size: xx-large; width: 60%">
                             <code data-trim>
                                 \begin{align}
                                 y &= (x+1)^2 \\
@@ -45,17 +51,16 @@ loadReveal();
                         </pre>
                     </VSection>
                     <VSection>
-                        <h2>Workflow</h2>
-                        <ul>
-                            <li>Preprocessing</li>
-                            <li>Symbol Segmentation</li>
-                            <li>Symbol Classification</li>
-                            <li>Structural Analysis</li>
-                        </ul>
+                        <h2>Workflow: Tradition vs Encoder-decoder</h2>
                         <Image
-                            :src="imgTradition"
+                            :src="im['tradition']"
                             alt="workflow"
-                            class="w-2/3"
+                            class="w-3/5"
+                        />
+                        <Image
+                            :src="im['seq2seq']"
+                            alt="Seq2Seq"
+                            class="w-4/5"
                         />
                     </VSection>
                     <VSection>
@@ -95,160 +100,257 @@ loadReveal();
                                 </ul>
                             </li>
                         </ol>
-                        <Image
-                            :src="imgOCR"
-                            alt="OCR"
-                            class="w-2/5"
-                        />
+                        <Image :src="im['ocr']" alt="OCR" class="w-2/5" />
                     </VSection>
                 </section>
                 <section>
-                    <section>
-                        <div class="center">
-                            <div>
-                                <h1>II. Significance</h1>
-                            </div>
-                        </div>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Education and Research
-                            * Editing formulas on the computer was a challenging task,thus save time for researchers
-                            * Automatically grade handwritten mathematical assignments
-                            * Interactive online courses that allow students to enter handwritten formulas and receive immediate feedback
-                            <image class="w-3/5" src="/src/assets/images/June8/tedious.png" style="margin:0 auto;"/>
-                        </textarea>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template >
-                            ## Industry and Business
-                            * In engineering, handwritten formula recognition can be used to digitize hand-drawn diagrams and engineering sketches, making them easier to edit and share.
-                            * n finance, handwritten formula recognition can be used to digitize handwritten financial documents, such as invoices and receipts. This can help to streamline accounting processes, reduce errors, and improve efficiency.
-                            <image class="w-2/5" src="/src/assets/images/June8/digitization.png" style="margin:0 auto;"/>
-                        </textarea>
-                    </section>
+                    <HSection text="II. Significance" />
+                    <VSection>
+                        <h2>Education and Research</h2>
+                        <ul>
+                            <li>
+                                Editing formulas on the computer was a
+                                challenging task,thus save time for researchers
+                            </li>
+                            <li>
+                                Automatically grade handwritten mathematical
+                                assignments
+                            </li>
+                            <li>
+                                Interactive online courses that allow students
+                                to enter handwritten formulas and receive
+                                immediate feedback
+                            </li>
+                        </ul>
+                        <Image class="w-1/2" :src="im['tedious']" />
+                    </VSection>
+                    <VSection>
+                        <h2>Industry and Business</h2>
+                        <ul>
+                            <li>
+                                In engineering, handwritten formula recognition
+                                can be used to digitize hand-drawn diagrams and
+                                engineering sketches, making them easier to edit
+                                and share.
+                            </li>
+                            <li>
+                                In finance, handwritten formula recognition can
+                                be used to digitize handwritten financial
+                                documents, such as invoices and receipts. This
+                                can help to streamline accounting processes,
+                                reduce errors, and improve efficiency.
+                            </li>
+                        </ul>
+                        <Image class="w-1/3" :src="im['digitization']" />
+                    </VSection>
                 </section>
                 <section>
-                    <section>
-                        <div class="center">
-                            <div>
-                                <h1>III. Methodology</h1>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
+                    <HSection text="III. Methodology" />
+                    <VSection>
                         <h2>Three Phases</h2>
-                        <div style="align-items: center;">
-                            <blockquote>
-                                Phase1: Data Collection & PreProcessing
-                                <p>Data cleaning, normalization, resizing, and augmentation.</p>
-                            </blockquote> 
-                            <p class="text-center">↓</p>
+                        <blockquote>
+                            Phase1: Data Collection & PreProcessing
+                            <p>
+                                Data cleaning, normalization, resizing, and
+                                augmentation.
+                            </p>
+                        </blockquote>
+                        <p class="text-center">↓</p>
 
-                            <blockquote>
-                                Phase2: Model Development & Evaluation
-                                <p>A model with novel architectural components will be developed based on the encoder-decoder neural network.</p>
-                            </blockquote> 
-                            <p class="text-center">↓</p>
+                        <blockquote>
+                            Phase2: Model Development & Evaluation
+                            <p>
+                                A model with novel architectural components will
+                                be developed based on the encoder-decoder neural
+                                network.
+                            </p>
+                        </blockquote>
+                        <p class="text-center">↓</p>
 
-                            <blockquote>
-                                Phase3: Continual Optimization and Model Deployment
-                                <p>Overcome the corner cases and maximizing recognition accuracy</p>
-                            </blockquote> 
-                        </div>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
+                        <blockquote>
+                            Phase3: Continual Optimization and Model Deployment
+                            <p>
+                                Overcome the corner cases and maximizing
+                                recognition accuracy
+                            </p>
+                        </blockquote>
+                    </VSection>
+                    <VSection>
                         <h2>Encoder</h2>
-                        <p>The fundamental concept of DenseNet involves linking all networks in a feed-forward manner, which amplifies the flow of information between layers through direct connections between each layer and all subsequent layers.</p>
+                        <p>
+                            The fundamental concept of DenseNet involves linking
+                            all networks in a feed-forward manner, which
+                            amplifies the flow of information between layers
+                            through direct connections between each layer and
+                            all subsequent layers.
+                        </p>
                         <code>
-                            \begin{align} 
-                                x_{\ell}=H_{\ell}\left(\left[x_0 ; x_1 ; \ldots ; x_{\ell-1}\right]\right)
-                            \end{align}
+                            \begin{align} x_{\ell}=H_{\ell}\left(\left[x_0 ; x_1
+                            ; \ldots ; x_{\ell-1}\right]\right) \end{align}
                         </code>
 
-                        Here, $H_{\ell}(\cdot)$ denotes a composite function consisting of three consecutive layers (a batch normalization layer, followed by a ReLU layer and a $3 \times 3$ convolution layer) and $[x_0;x_1;\ldots;x_{\ell-1}]$ represents the concatenation operation of all the output features.
-                        
-                        Furthermore, a $1 \times 1$ convolutional layer can be incorporated into the encoder part to adjust the output image feature dimension to match the embedding dimension for further processing.
-                    </textarea>
-                    </section>
-                    <section>
+                        Here, $H_{\ell}(\cdot)$ denotes a composite function
+                        consisting of three consecutive layers (a batch
+                        normalization layer, followed by a ReLU layer and a $3
+                        \times 3$ convolution layer) and
+                        $[x_0;x_1;\ldots;x_{\ell-1}]$ represents the
+                        concatenation operation of all the output features.
+                        Furthermore, a $1 \times 1$ convolutional layer can be
+                        incorporated into the encoder part to adjust the output
+                        image feature dimension to match the embedding dimension
+                        for further processing.
+                    </VSection>
+                    <VSection>
                         <h2>Decoders</h2>
-                        <div class="columns-3">
-                            <div class="w-full">
-                                <p>BTTR Decoder(2021)</p>
-                                <p><span class="red">B</span>idirectionally <span class="red">T</span>rained <span class="red">TR</span>ansformer</p>
-                                <img src="/src/assets/images/June8/bttr.png" class="w-2/3">
+                        <div class="grid grid-cols-3">
+                            <div>
+                                BTTR Decoder(2021)
+                                <span class="text-red-600">B</span
+                                >idirectionally
+                                <span class="text-red-600">T</span>rained
+                                <span class="text-red-600">TR</span>ansformer
+                                <img :src="im['bttr']" class="w-4/5" />
                             </div>
-                            <div class="w-full">
-                                <p>SAN Decoder(2022)</p>
-                                <p><span class="red">S</span>yntax-<span class="red">A</span>ware <span class="red">N</span>etwork</p>
-                                <img src="/src/assets/images/June8/san.png" class="w-2/3">
+                            <div>
+                                SAN Decoder(2022)
+                                <span class="text-red-600">S</span>yntax
+                                <span class="text-red-600">A</span>ware
+                                <span class="text-red-600">N</span>etwork
+                                <img :src="im['san']" class="w-2/3" />
                             </div>
-                            <div class="w-full">
-                                <p>CoMER Decoder(2022)</p>
-                                <p><span class="red">C</span>overage information in the transfor<span class="red">MER</span> decoder</p>
-                                <img src="/src/assets/images/June8/comer.png">
+                            <div>
+                                CoMER Decoder(2022)
+                                <span class="text-red-600">C</span>overage
+                                information in the transfor<span
+                                    class="text-red-600"
+                                    >MER</span
+                                >
+                                decoder
+                                <img :src="im['comer']" />
                             </div>
                         </div>
-                    </section>
-                    <section>
+                    </VSection>
+                    <VSection>
                         <h2>CROHME Dataset</h2>
-                        <div class="columns-2">
-                            <div class="w-4/5" style="text-align: center;">
-                                CROHME: <span class="red">C</span>ompetition on <span class="red">R</span>ecognition of <span class="red">O</span>nline <span class="red">H</span>andwritten <span class="red">M</span>athematical <span class="red">E</span>xpressions,which currently is most widely used benchmark dataset for HMER.
-                            </div>
-                            <table class="w-4/5" style="font-size:20px;">
+                        <div class="flex mb-10">
+                            <p class="w-3/5">
+                                CROHME: <span class="red">C</span>ompetition on
+                                <span class="text-red-600">R</span>ecognition of
+                                <span class="text-red-600">O</span>nline
+                                <span class="text-red-600">H</span>andwritten
+                                <span class="text-red-600">M</span>athematical
+                                <span class="text-red-600">E</span
+                                >xpressions,which currently is most widely used
+                                benchmark dataset for HMER.
+                            </p>
+                            <table
+                                class="table-auto text-xl border-2 border-slate-300"
+                            >
                                 <thead>
                                     <tr>
-                                        <th class="border border-slate-300"></th>
-                                        <th class="border border-slate-300">Number of Images</th>
+                                        <th
+                                            class="border-2 border-slate-300"
+                                        ></th>
+                                        <th class="border-2 border-slate-300">
+                                            Number of Images
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="border border-slate-300">Training Set</td>
-                                        <td class="border border-slate-300">8835</td>
+                                        <td class="border-2 border-slate-300">
+                                            Training Set
+                                        </td>
+                                        <td class="border-2 border-slate-300">
+                                            8835
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-slate-300">Test 2014</td>
-                                        <td class="border border-slate-300">986</td>
+                                        <td class="border-2 border-slate-300">
+                                            Test 2014
+                                        </td>
+                                        <td class="border-2 border-slate-300">
+                                            986
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-slate-300">Test 2016</td>
-                                        <td class="border border-slate-300">1147</td>
+                                        <td class="border-2 border-slate-300">
+                                            Test 2016
+                                        </td>
+                                        <td class="border-2 border-slate-300">
+                                            1147
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-slate-300">Test 2019</td>
-                                        <td class="border border-slate-300">1199</td>
+                                        <td class="border-2 border-slate-300">
+                                            Test 2019
+                                        </td>
+                                        <td class="border-2 border-slate-300">
+                                            1199
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="border border-slate-300">Total Test Set</td>
-                                        <td class="border border-slate-300">3332</td>
+                                        <td class="border-2 border-slate-300">
+                                            Total Test Set
+                                        </td>
+                                        <td class="border-2 border-slate-300">
+                                            3332
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p></p>
-                        <img style="margin:0 auto;" class="w-3/4" src="src/assets/images/June8/dataset.jpg"/>
-                    </section>
-                    <section>
+                        <Image
+                            :src="im['dataset']"
+                            alt="dataset"
+                            class="w-3/4"
+                        />
+                    </VSection>
+                    <VSection>
                         <h2>Data Distribution</h2>
-                        <div class="columns-2 w-2/3" style="margin:0 auto;">
-                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/token-distri.png"/>
-                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-h-distri.png"/>
-                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-len-distri.png"/>
-                            <img style="margin:0 auto;" class="w-full" src="src/assets/images/June8/train-w-distri.png"/>
+                        <div class="grid grid-cols-2">
+                            <Image
+                                :src="im['token-distri']"
+                                class="inline w-7/12"
+                            />
+                            <Image
+                                :src="im['train-len-distri']"
+                                class="inline w-7/12"
+                            />
+                            <Image
+                                :src="im['train-h-distri']"
+                                class="inline w-7/12"
+                            />
+                            <Image
+                                :src="im['train-w-distri']"
+                                class="inline w-7/12"
+                            />
                         </div>
-                    </section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Expression Recognition Rate Comparison
-                            * (Number1, Number2): Number1 is taken from the papers. Number2 is our reproduced result. Single value indicates that Number1 == Number2.
-                            * ≤ 1error and ≤ 2error represent expression recognition rate when 1 to 2 structural or symbol errors can be tolerated.
-                            <img style="margin:0 auto;" class="w-2/3" src="src/assets/images/June8/model-comparison.jpg"/>
-                        </textarea>
-                    </section>
+                    </VSection>
+                    <VSection>
+                        <h2>Expression Recognition Rate Comparison</h2>
+                        <ul>
+                            <li>
+                                (Number1, Number2): Number1 is taken from the
+                                papers. Number2 is our reproduced result. Single
+                                value indicates that Number1 == Number2.
+                            </li>
+                            <li>
+                                ≤ 1error and ≤ 2error represent expression
+                                recognition rate when 1 to 2 structural or
+                                symbol errors can be tolerated.
+                            </li>
+                        </ul>
+                        <Image
+                            class="w-3/4"
+                            :src="im['model-comparison']"
+                            alt="model comparison"
+                        />
+                    </VSection>
+                    <VSection>
+                        <h2>Schedule</h2>
+                        <Image :src="im['schedule']" class="w-4/5" />
+                    </VSection>
                 </section>
                 <HSection text="Thank you!" />
             </div>
