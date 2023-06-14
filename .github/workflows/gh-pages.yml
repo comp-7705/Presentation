@@ -32,7 +32,7 @@ jobs:
 
             - name: Install and Build
               run: |
-                  npm ci
+                  npm install -f
                   npm run build
 
             - name: Deploy to GitHub Pages
