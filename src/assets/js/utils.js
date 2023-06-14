@@ -1,6 +1,6 @@
 export function gallery(imagePaths) {
     const images = {}; // Access the images by their name
-    console.log(imagePaths);
+    // console.log(imagePaths);
     for (const path of imagePaths) {
         // Extract the image name from the URL
         let name = path.split("/").pop();
@@ -11,6 +11,6 @@ export function gallery(imagePaths) {
         }
         images[name] = path;
     }
-    console.log(images);
+    // console.log(images);
     return images;
 }

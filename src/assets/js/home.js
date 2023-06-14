@@ -8,8 +8,8 @@ const imagePaths = Object.values(
 );
 const images = gallery(imagePaths);
 
-const h = 174;
-const w = 296;
+const h = 174; // 870pt
+const w = 296; // 1480pt
 const defaultImgUrl = `https://via.placeholder.com/${w}x${h}`;
 
 // Presentation dates
