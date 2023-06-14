@@ -84,12 +84,8 @@ loadReveal();
                     <HSection text="III. Schedule" />
                     <VSection>
                         <h2>Milestones</h2>
-                        <Image :src="im['detail sche']" alt="schedule" class="w-5/12" />
+                        <Image :src="im['detailSche']" alt="schedule" class="w-5/12" />
                     </VSection>
-                    <!-- <VSection>
-                        <h2>Detailed schedule</h2>
-                        
-                    </VSection> -->
                 </section>
                 <HSection text="Thank you!" />
             </div>
