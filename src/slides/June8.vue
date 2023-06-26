@@ -22,9 +22,10 @@ loadReveal();
                     <VSection>
                         <h2>Definition of HMER</h2>
                         <p>
-                            HMER is the process of automatically identifying and
-                            extracting mathematical expressions from handwritten
-                            input.
+                            Handwritten Mathematical Expression Recognition
+                            (HMER) is the process of automatically identifying
+                            and extracting mathematical expressions from
+                            handwritten input.
                         </p>
                         <Image :src="im['hmer']" alt="hmer" class="w-2/5" />
                     </VSection>
@@ -69,7 +70,7 @@ loadReveal();
                                 Optical Character Recognition (OCR)
                                 <ul>
                                     <li>
-                                        mainly used for
+                                        Mainly used for
                                         <strong>digitizing printed text</strong>
                                     </li>
                                 </ul>
@@ -78,7 +79,7 @@ loadReveal();
                                 Intelligent Character Recognition (ICR)
                                 <ul>
                                     <li>
-                                        used for recognizing structured
+                                        Used for recognizing structured
                                         handwriting such as
                                         <strong>tables and forms</strong>
                                     </li>
@@ -88,7 +89,7 @@ loadReveal();
                                 Handwritten Text Recognition (HTR)
                                 <ul>
                                     <li>
-                                        aims to recognize
+                                        Aims to recognize
                                         <strong>handwritten text</strong>
                                         while handwritten formula recognition
                                         requires the recognition of
@@ -233,14 +234,15 @@ loadReveal();
                         <h2>CROHME Dataset</h2>
                         <div class="flex mb-10">
                             <p class="w-3/5">
-                                CROHME: <span class="red">C</span>ompetition on
+                                CROHME:
+                                <span class="text-red-600">C</span>ompetition on
                                 <span class="text-red-600">R</span>ecognition of
                                 <span class="text-red-600">O</span>nline
                                 <span class="text-red-600">H</span>andwritten
                                 <span class="text-red-600">M</span>athematical
-                                <span class="text-red-600">E</span
-                                >xpressions,which currently is most widely used
-                                benchmark dataset for HMER.
+                                <span class="text-red-600">E</span>xpressions,
+                                which currently is most widely used benchmark
+                                dataset for HMER.
                             </p>
                             <table
                                 class="table-auto text-xl border-2 border-slate-300"
@@ -310,19 +312,19 @@ loadReveal();
                         <div class="grid grid-cols-2">
                             <Image
                                 :src="im['token-distri']"
-                                class="inline w-7/12"
+                                class="inline w-2/3"
                             />
                             <Image
                                 :src="im['train-len-distri']"
-                                class="inline w-7/12"
+                                class="inline w-2/3"
                             />
                             <Image
                                 :src="im['train-h-distri']"
-                                class="inline w-7/12"
+                                class="inline w-2/3"
                             />
                             <Image
                                 :src="im['train-w-distri']"
-                                class="inline w-7/12"
+                                class="inline w-2/3"
                             />
                         </div>
                     </VSection>
@@ -335,7 +337,7 @@ loadReveal();
                                 value indicates that Number1 == Number2.
                             </li>
                             <li>
-                                ≤ 1error and ≤ 2error represent expression
+                                ≤ 1 error and ≤ 2 error represent expression
                                 recognition rate when 1 to 2 structural or
                                 symbol errors can be tolerated.
                             </li>
