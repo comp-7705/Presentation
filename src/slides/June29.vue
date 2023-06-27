@@ -1,6 +1,9 @@
 <script setup>
 import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
 import { gallery } from "@js/utils.js";
+import imgHMER from "@images/June8/hmer.jpg";
+import imgDemo1 from "@images/June15/web-demo1.png";
+import imgDemo2 from "@images/June15/web-demo2.jpg";
 
 // Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
@@ -32,176 +35,177 @@ loadReveal();
                             and Business
                         </li>
                         <li>
-                            CROHME dataset and State-of-the-art models (BTTR,
-                            SAN, CoMER)
+                            Analysis of CROHME dataset and State-of-the-art
+                            models (BTTR, SAN, CoMER)
                         </li>
                     </ul>
-                    <Image :src="im['hmer']" class="w-1/3" />    
+                    <Image :src="imgHMER" class="w-1/3" />
                 </VSection>
                 <VSection>
-                    <h2>Recap of 2nd Week: Failure Case Analysis</h2>
+                    <h2>Recap of 2nd Week</h2>
                     <ul>
                         <li>
-                            Label Length Distribution: <br/>
-                            SAN,BTTR and CoMER are particularly susceptible
-                                to failures when the label length is either
-                                <span class="text-red-600 font-bold"
-                                    >4, 14, or 16</span
-                                >.
+                            Failure Case Analysis
+                            <ul>
+                                <li>
+                                    Label Length Distribution: SAN,BTTR and
+                                    CoMER are particularly susceptible to
+                                    failures when the label length is either
+                                    <span class="text-red-600 font-bold">
+                                        4, 14, or 16.
+                                    </span>
+                                </li>
+                                <li>
+                                    Symbol Recognition Failures: All models lack
+                                    context awareness.
+                                </li>
+                                <li>
+                                    Structure Recognition Failures: CoMER wins
+                                    out from all models.
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            Symbol Recognition Failures: <br/>
-                            <aside class="note">
-                                All models incorrectly recognized the uppercase $X$ as a
-                                lowercase $x$, likely due to ambiguity in the image
-                                itself, all models mistook the symbol
-                                $\exists$ for the number $7$, since $\exists$ is one
-                                of the five least frequently occurring tokens.
-                            </aside>
+                            Prototype Demo
+                            <div class="flex">
+                                <img :src="imgDemo1" class="w-1/2" />
+                                <img :src="imgDemo2" class="w-1/2" />
+                            </div>
                         </li>
-                        <li>
-                            Structure Recognition Failures: <br/>
-                            <aside class="note">
-                                The models BTTR and SAN failed to
-                                detect the superscript of $y^{b+1}$. Similarly, BTTR could not include $(n-1)$ within the
-                                square root while SAN produced a duplicated value of
-                                $>0$. On the other hand, CoMER demonstrated
-                                successful recognition of these two examples.
-                            </aside>
-                        </li>
-                    </ul>   
+                    </ul>
                 </VSection>
                 <section>
                     <HSection text="I. Encoder From Scratch" />
                     <VSection>
                         <h2>ResNet</h2>
                         <ul>
-                        <li>
-                            When deeper networks are able to start converging, 
-                            a degradation problem has been exposed: <br/>
-                            With the network depth increasing, 
-                            accuracy gets saturated (which might be unsurprising) 
-                            and then degrades rapidly. 
-                        </li>
-                        <li>
-                            The degradation problem is addressed by introducing a deep residual learning framework.
-                            Instead of hoping each few stacked layers directly fit a desired underlying mapping,
-                            we explicitly let these layers fit a residual mapping. 
-                            It is easier to optimize the residual mapping than to optimize the original, unreferenced mapping. 
-                        </li>
-                    </ul>
-                        <Image :src="im['resnet-block']" class="w-2/5"/>
-                    </VSection>
-                    <VSection>
-                        <h2>ResNet</h2>
-                        We use ResNet152 practically in our model as following.
-                        <Image :src="im['resnet152']" />
-                    </VSection>
-                    <VSection>
-                        <h2>DenseNet</h2>
-                        <ul>
-                        <li>
-                            Problem to solve: Just as the same as ResNet
-                        </li>
-                        <li>
-                            To ensure maximum information flow between layers, 
-                            All layers are connected with other layers (but ensure that feature maps of the 
-                            same size are present).
-                            In order to preserve the characteristics of forward propagation, each layer takes 
-                            the previous layer as input and passes its own feature map to the subsequent layers.
-                        </li>
+                            <li>
+                                Residual connections allow additional layers to
+                                simply pass through the input to the output. The
+                                residual mapping can learn the
+                                <span class="text-red-600 font-bold"
+                                    >identity function</span
+                                >
+                                more easily, such as pushing parameters in the
+                                weight layer to zero.
+                            </li>
+                            <li>
+                                As a consequence, residual connections allow us
+                                to train much
+                                <span class="text-red-600 font-bold"
+                                    >deeper networks</span
+                                >. Residual connections had a major influence on
+                                the design of subsequent deep neural networks,
+                                both for convolutional and sequential nature.
+                            </li>
                         </ul>
-                        <Image :src="im['densenet']" class="w-2/5"/>
+                        <Image :src="im['resnet-block']" class="w-3/5" />
+                    </VSection>
+                    <VSection>
+                        <h2>ResNet-152</h2>
+                        <!-- We use ResNet-152 in our experimental model. -->
+                        <Image :src="im['resnet152']" class="w-4/5" />
                     </VSection>
                     <VSection>
                         <h2>DenseNet</h2>
-                        
-                        <Image :src="im['densenet161']" class="w-2/5"/>
+                        In terms of cross-layer connections, unlike ResNet,
+                        where inputs and outputs are added together, DenseNet
+                        <span class="text-red-600 font-bold">
+                            concatenates</span
+                        >
+                        inputs and outputs on the channel dimension.
+                        <Image :src="im['densenet']" class="w-1/2" />
+                    </VSection>
+                    <VSection>
+                        <h2>DenseNet-161</h2>
+
+                        <Image :src="im['densenet161']" class="w-1/2" />
                     </VSection>
                     <VSection>
                         <h2>Feature Pyramid Network (FPN)</h2>
                         <ul>
-                        <li>
-                            (a) Scale the images to different scales, 
-                            and then use the model to predict the images of each scale in turn.
-                        </li>
-                        <li>
-                            (b) The final feature map is obtained by performing convolution 
-                            and pooling operations on the image, 
-                            and then predictions are made on the final feature map.
-                        </li>
-                        <li>
-                            (c) SSD forms a feature pyramid by calculating feature maps from different layers 
-                            in the convolutional network. 
-                        </li>
-                        <li>
-                            (d) The features on different feature maps are fused and predictions are made on the fused feature maps.
-                        </li>
+                            <li>
+                                FPN is a feature extractor that takes a
+                                single-scale image of an arbitrary size as
+                                input, and outputs
+                                <span class="text-red-600 font-bold"
+                                    >multi-scale</span
+                                >
+                                feature maps at multiple levels.
+                            </li>
+                            <li>
+                                The features maps at different levels are fused
+                                and predictions are made on the fused feature
+                                maps.
+                            </li>
                         </ul>
-                        <Image :src="im['fpn']" class="w-1/3"/>
+                        <Image :src="im['fpn']" class="w-2/3" />
                     </VSection>
                     <VSection>
                         <h2>Pyramid Scene Parsing Network (PSPNet)</h2>
-                        In complex-scene parsing,there are 3 common issues:<br/>
                         <ul>
-                        <li>
-                            Mismatched Relationship
-                        </li>
-                        <li>
-                            Confusion Categories
-                        </li>
-                        <li>
-                            Inconspicuous Classes
-                        </li>
+                            <li>
+                                PSPNet introduces the pyramid pooling module,
+                                which empirically proves to be an effective
+                                <span class="text-red-600 font-bold">
+                                    global contextual prior.
+                                </span>
+                                PSPNet uses the Pyramid Pooling Module shown in
+                                (c) to gather context information in feature
+                                maps.
+                            </li>
+                            <li>
+                                Using 4-level pyramid (1, 2, 3, and 6), the
+                                pooling kernels cover the whole, half of, and
+                                small portions of the image. They are fused as
+                                the global priors. Then the global priors are
+                                upsampled and concatenated with the original
+                                feature map.
+                            </li>
                         </ul>
-                        <br/>
-                        On top of the map, we use the pyramid pooling module shown in (c) to gather context information. 
-                        Using our 4-level pyramid, the pooling kernels cover the whole, 
-                        half of, and small portions of the image. 
-                        They are fused as the global prior. 
-                        Then we concatenate the prior with the original feature map in the final part of (c).
-                        It is followed by a convolution layer to generate the final prediction map in (d).
-
-                        <Image :src="im['pspnet']"/>
+                        <Image :src="im['pspnet']" class="w-full" />
                     </VSection>
                 </section>
                 <section>
                     <HSection text="II. Decoder from Scratch" />
                     <VSection>
                         <h2>Gated Recurrent Unit (GRU)</h2>
-                        <ul>
-                            <li>
-                                <aside class="note">
-                                    Reset Gate $R_t$: 
-                                    $R_t=\sigma(W_rx_t+U_rH_{t-1}+b_r)$
-                                </aside>
-                            </li>
-                            <li>
-                                <aside class="note">
-                                    Update Gate $Z_t$: 
-                                    $Z_t=\sigma(W_zx_t+U_zH_{t-1}+b_z)$
-                                </aside>
-                            </li>
-                            <li>
-                                <aside class="note">
-                                    $\widetilde{H_t}=\tanh(W_cx_t,U(r_t\cdot H_{t-1}))$ <br/>
-                                    $H_t=z_th_{t-1}+(1-z_t)\cdot \widetilde{H_t}$
-                                </aside>
-                            </li>
-                        </ul>
-                        <Image :src="im['gru']" class="w-2/1"/>
+                        Reset Gate $R_t$. Update Gate $Z_t$. Candidate hidden
+                        state $\tilde{H_t}$. Hidden state $H_t$.
+                        <!-- prettier-ignore -->
+                        <code>
+                            \begin{aligned}
+                            \mathbf{R}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xr} + \mathbf{H}_{t-1} \mathbf{W}_{hr} + \mathbf{b}_r), \\
+                            \mathbf{Z}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xz} + \mathbf{H}_{t-1} \mathbf{W}_{hz} + \mathbf{b}_z), \\
+                            \tilde{\mathbf{H}}_t &= \tanh(\mathbf{X}_t \mathbf{W}_{xh} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{hh} + \mathbf{b}_h), \\
+                            \mathbf{H}_t &= \mathbf{Z}_t \odot \mathbf{H}_{t-1} + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.
+                            \end{aligned}
+                        </code>
+                        <!-- Hadamard (elementwise) product operator -->
+                        <Image :src="im['gru']" class="w-2/3" />
                         <!-- https://d2l.ai/chapter_recurrent-modern/gru.html -->
                     </VSection>
                     <VSection>
                         <h2>Attention Mechanism</h2>
-                        <aside class="note">
-                            The attention mechanism computes a linear combination over values $\bf{v_i}$ 
- via attention pooling, where weights are derived according to the compatibility between a query $\bf{q}$ 
- and keys $\bf{k_i}$
-.
-                        </aside>
-                        
-                        <Image :src="im['attention-qkv']"/>
+                        <ul>
+                            <li>
+                                Query is used to determine the relevance or
+                                importance of different elements in the input
+                                sequence.
+                            </li>
+                            <li>
+                                Key is often derived from the input sequence
+                                itself, and its purpose is to provide a basis
+                                for comparison with the query.
+                            </li>
+                            <li>
+                                Value is the actual information associated with
+                                each element or position in the input sequence.
+                                It can be seen as the content or meaning that we
+                                want to focus on.
+                            </li>
+                        </ul>
+                        <Image :src="im['attention-qkv']" />
                         <!-- https://d2l.ai/chapter_attention-mechanisms-and-transformers/queries-keys-values.html -->
                     </VSection>
                     <!-- 感觉讲不完这么多，可以留着下次讲，说使用了一种性能更好的模型
@@ -209,7 +213,7 @@ loadReveal();
                         <h2>Coverage Mechanism</h2>
                         <Image :src="im['gru']" class="w-2/1"/>
                         https://ieeexplore.ieee.org/document/8546031 -->
-                        <!-- See DenseWAP Paper, Equation 17 to 20 -->
+                    <!-- See DenseWAP Paper, Equation 17 to 20 -->
                     <!--</VSection> 
                     -->
                 </section>
@@ -312,39 +316,41 @@ loadReveal();
                         </table>
                     </VSection>
                     <VSection>
-                        <h2>Training Curves</h2>
+                        <h2>Accuracy Curves</h2>
                         <div class="grid grid-cols-2">
-                            <Image :src="im['Exp1n2-Acc']" class="w-1/1"/>
-                            <Image :src="im['Exp3n4-Acc']" class="w-1/1"/>
+                            <div>
+                                Experiment 1 & 2
+                                <Image :src="im['Exp1n2-Acc']" class="w-full" />
+                            </div>
+                            <div>
+                                Experiment 3 & 4
+                                <Image :src="im['Exp3n4-Acc']" class="w-full" />
+                            </div>
                         </div>
                     </VSection>
                     <VSection>
-                        <h2>Training Curves</h2>
+                        <h2>Loss Curves</h2>
                         <div class="grid grid-cols-2">
-                            <Image :src="im['Exp1n2-Loss']" class="w-1/1"/>
-                            <Image :src="im['Exp3n4-Loss']" class="w-1/1"/>
+                            <div>
+                                Experiment 1 & 2
+                                <Image
+                                    :src="im['Exp1n2-Loss']"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div>
+                                Experiment 3 & 4
+                                <Image
+                                    :src="im['Exp3n4-Loss']"
+                                    class="w-full"
+                                />
+                            </div>
                         </div>
                     </VSection>
                 </section>
                 <VSection>
                     <h2>Next Schedule</h2>
-                    <div class="grid grid-cols-2">
-                        <div>
-                            <ul>
-                                <li>Phase I: Data Collection & Pre-processing</li>
-                            </ul>
-                            <br/><br/>
-                            <ul>
-                                <li>Phase II: Model Development & Evaluation</li>
-                            </ul>
-                            <br/><br/>
-                            <ul>
-                                <li>Phase III: Continual Optimization and Model Deployment</li>
-                            </ul>
-                        </div>
-                        <Image :src="im['schedule']" class="w-4/5"/>
-                    </div>
-                    
+                    <Image :src="im['schedule']" class="w-2/3" />
                 </VSection>
                 <HSection text="Thank you!" />
             </div>
