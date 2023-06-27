@@ -142,6 +142,26 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Pyramid Scene Parsing Network (PSPNet)</h2>
+                        In complex-scene parsing,there are 3 common issues:<br/>
+                        <ul>
+                        <li>
+                            Mismatched Relationship
+                        </li>
+                        <li>
+                            Confusion Categories
+                        </li>
+                        <li>
+                            Inconspicuous Classes
+                        </li>
+                        </ul>
+                        <br/>
+                        On top of the map, we use the pyramid pooling module shown in (c) to gather context information. 
+                        Using our 4-level pyramid, the pooling kernels cover the whole, 
+                        half of, and small portions of the image. 
+                        They are fused as the global prior. 
+                        Then we concatenate the prior with the original feature map in the final part of (c).
+                        It is followed by a convolution layer to generate the final prediction map in (d).
+
                         <Image :src="im['pspnet']"/>
                     </VSection>
                 </section>
@@ -149,17 +169,49 @@ loadReveal();
                     <HSection text="II. Decoder from Scratch" />
                     <VSection>
                         <h2>Gated Recurrent Unit (GRU)</h2>
+                        <ul>
+                            <li>
+                                <aside class="note">
+                                    Reset Gate $R_t$: 
+                                    $R_t=\sigma(W_rx_t+U_rH_{t-1}+b_r)$
+                                </aside>
+                            </li>
+                            <li>
+                                <aside class="note">
+                                    Update Gate $Z_t$: 
+                                    $Z_t=\sigma(W_zx_t+U_zH_{t-1}+b_z)$
+                                </aside>
+                            </li>
+                            <li>
+                                <aside class="note">
+                                    $\widetilde{H_t}=\tanh(W_cx_t,U(r_t\cdot H_{t-1}))$ <br/>
+                                    $H_t=z_th_{t-1}+(1-z_t)\cdot \widetilde{H_t}$
+                                </aside>
+                            </li>
+                        </ul>
+                        <Image :src="im['gru']" class="w-2/1"/>
                         <!-- https://d2l.ai/chapter_recurrent-modern/gru.html -->
                     </VSection>
                     <VSection>
                         <h2>Attention Mechanism</h2>
+                        <aside class="note">
+                            The attention mechanism computes a linear combination over values $\bf{v_i}$ 
+ via attention pooling, where weights are derived according to the compatibility between a query $\bf{q}$ 
+ and keys $\bf{k_i}$
+.
+                        </aside>
+                        
+                        <Image :src="im['attention-qkv']"/>
                         <!-- https://d2l.ai/chapter_attention-mechanisms-and-transformers/queries-keys-values.html -->
                     </VSection>
-                    <VSection>
+                    <!-- 感觉讲不完这么多，可以留着下次讲，说使用了一种性能更好的模型
+                        <VSection>
                         <h2>Coverage Mechanism</h2>
-                        <!-- https://ieeexplore.ieee.org/document/8546031 -->
+                        <Image :src="im['gru']" class="w-2/1"/>
+                        https://ieeexplore.ieee.org/document/8546031 -->
                         <!-- See DenseWAP Paper, Equation 17 to 20 -->
-                    </VSection>
+                    <!--</VSection> 
+                    -->
                 </section>
                 <section>
                     <HSection text="III. Experiment" />
@@ -261,12 +313,37 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Training Curves</h2>
-                        <p>Loss:</p>
-                        <p>Accuracy:</p>
+                        <div class="grid grid-cols-2">
+                            <Image :src="im['Exp1n2-Acc']" class="w-1/1"/>
+                            <Image :src="im['Exp3n4-Acc']" class="w-1/1"/>
+                        </div>
+                    </VSection>
+                    <VSection>
+                        <h2>Training Curves</h2>
+                        <div class="grid grid-cols-2">
+                            <Image :src="im['Exp1n2-Loss']" class="w-1/1"/>
+                            <Image :src="im['Exp3n4-Loss']" class="w-1/1"/>
+                        </div>
                     </VSection>
                 </section>
                 <VSection>
                     <h2>Next Schedule</h2>
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <ul>
+                                <li>Phase I: Data Collection & Pre-processing</li>
+                            </ul>
+                            <br/><br/>
+                            <ul>
+                                <li>Phase II: Model Development & Evaluation</li>
+                            </ul>
+                            <br/><br/>
+                            <ul>
+                                <li>Phase III: Continual Optimization and Model Deployment</li>
+                            </ul>
+                        </div>
+                        <Image :src="im['schedule']" class="w-4/5"/>
+                    </div>
                     
                 </VSection>
                 <HSection text="Thank you!" />
