@@ -118,8 +118,16 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>DenseNet-161</h2>
-
-                        <Image :src="im['densenet161']" class="w-1/2" />
+                        <ul>
+                            <li>
+                                growth_rate = 48, block_config = [6, 12, 36, 24]
+                            </li>
+                            <li>
+                                out_channel = in_channel + block_config[i] *
+                                growth_rate
+                            </li>
+                        </ul>
+                        <Image :src="im['densenet161']" class="w-2/5" />
                     </VSection>
                     <VSection>
                         <h2>Feature Pyramid Network (FPN)</h2>
