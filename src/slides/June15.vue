@@ -72,9 +72,7 @@ loadReveal();
                             <li>
                                 These three models are particularly susceptible
                                 to failures when the label length is either
-                                <span class="text-red-600 font-bold"
-                                    >4, 14, or 16</span
-                                >.
+                                <span class="">4, 14, or 16</span>.
                             </li>
                         </ul>
                         <Image
@@ -130,7 +128,6 @@ loadReveal();
                                 :src="videoDemo"
                                 controls
                                 loop
-                                autoplay="muted"
                                 :width="900"
                                 class="w-11/12"
                             />

@@ -51,7 +51,7 @@ loadReveal();
                                     Label Length Distribution: SAN,BTTR and
                                     CoMER are particularly susceptible to
                                     failures when the label length is either
-                                    <span class="text-red-600 font-bold">
+                                    <span class="red-bold">
                                         4, 14, or 16.
                                     </span>
                                 </li>
@@ -83,18 +83,15 @@ loadReveal();
                                 Residual connections allow additional layers to
                                 simply pass through the input to the output. The
                                 residual mapping can learn the
-                                <span class="text-red-600 font-bold"
-                                    >identity function</span
-                                >
+                                <span class="red-bold">identity function</span>
                                 more easily, such as pushing parameters in the
                                 weight layer to zero.
                             </li>
                             <li>
                                 As a consequence, residual connections allow us
                                 to train much
-                                <span class="text-red-600 font-bold"
-                                    >deeper networks</span
-                                >. Residual connections had a major influence on
+                                <span class="red-bold">deeper networks</span>.
+                                Residual connections had a major influence on
                                 the design of subsequent deep neural networks,
                                 both for convolutional and sequential nature.
                             </li>
@@ -110,9 +107,7 @@ loadReveal();
                         <h2>DenseNet</h2>
                         In terms of cross-layer connections, unlike ResNet,
                         where inputs and outputs are added together, DenseNet
-                        <span class="text-red-600 font-bold">
-                            concatenates</span
-                        >
+                        <span class="red-bold"> concatenates</span>
                         inputs and outputs on the channel dimension.
                         <Image :src="im['densenet']" class="w-1/2" />
                     </VSection>
@@ -136,9 +131,7 @@ loadReveal();
                                 FPN is a feature extractor that takes a
                                 single-scale image of an arbitrary size as
                                 input, and outputs
-                                <span class="text-red-600 font-bold"
-                                    >multi-scale</span
-                                >
+                                <span class="red-bold">multi-scale</span>
                                 feature maps at multiple levels.
                             </li>
                             <li>
@@ -155,7 +148,7 @@ loadReveal();
                             <li>
                                 PSPNet introduces the pyramid pooling module,
                                 which empirically proves to be an effective
-                                <span class="text-red-600 font-bold">
+                                <span class="red-bold">
                                     global contextual prior.
                                 </span>
                                 PSPNet uses the Pyramid Pooling Module shown in
