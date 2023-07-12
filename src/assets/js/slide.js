@@ -47,3 +47,30 @@ export function setStyle() {
     set("--r-main-font-size", "1.875rem");
     set("--r-heading-font", font);
 }
+
+// Map dynamic import to a object
+export function gallery(imagePaths) {
+    const images = {}; // Access the images by their name
+    // console.log(imagePaths);
+    for (const path of imagePaths) {
+        // Extract the image name from the URL
+        let name = path.split("/").pop();
+        name = name.substring(0, name.lastIndexOf(".")); // Remove the extension
+        // if in build mode, remove the hash value
+        if (import.meta.env.PROD) {
+            name = name.substring(0, name.lastIndexOf("-"));
+        }
+        images[name] = path;
+    }
+    // console.log(images);
+    return images;
+}
+
+// Recap
+import Week1 from "@slides-recap/Week1.vue";
+import Week2 from "@slides-recap/Week2.vue";
+import Week3 from "@slides-recap/Week3.vue";
+import Week4 from "@slides-recap/Week4.vue";
+import Week5 from "@slides-recap/Week4.vue";
+
+export { Week1, Week2, Week3, Week4, Week5 };

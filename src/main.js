@@ -2,6 +2,7 @@
 import "./style.css";
 import App from "./App.vue";
 import Home from "./components/Home.vue";
+import { Cover, HSection, VSection, Image } from "@js/slide.js";
 
 // import vue related libraries
 import { createApp } from "vue";
@@ -61,6 +62,12 @@ library.add(fas);
 library.add(fab);
 // Add font awesome icon component
 app.component("font-awesome-icon", FontAwesomeIcon);
+
+// Add slide components
+app.component("Cover", Cover)
+    .component("HSection", HSection)
+    .component("VSection", VSection)
+    .component("Image", Image);
 
 app.mount("#app");
 

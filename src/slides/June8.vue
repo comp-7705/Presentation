@@ -1,15 +1,17 @@
 <script setup>
-import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
-import { gallery } from "@js/utils.js";
+import { loadReveal, gallery } from "@js/slide.js";
+
 // Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
-    import.meta.globEager("../assets/images/June8/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
-        as: "url",
-    })
+    import.meta.globEager(
+        "../assets/images/June8/*.{png,jpg,jpeg,PNG,JPEG,svg}",
+        {
+            as: "url",
+        }
+    )
 );
 const im = gallery(imagePaths);
-
-loadReveal();
+loadReveal(); // load reveal.js
 </script>
 
 <template>

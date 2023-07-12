@@ -14,6 +14,7 @@ export default defineConfig({
             "@js": "/src/assets/js",
             "@slides": "/src/slides",
             "@slides-comps": "/src/slides/components",
+            "@slides-recap": "/src/slides/recap",
         },
     },
 });

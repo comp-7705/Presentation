@@ -1,8 +1,15 @@
 <script setup>
-import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
-import { gallery } from "@js/utils.js";
+import {
+    loadReveal,
+    gallery,
+    Week1,
+    Week2,
+    Week3,
+    Week4,
+    Week5,
+} from "@js/slide.js";
+import { HSection } from "../assets/js/slide";
 
-// Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
     import.meta.glob("../assets/images/July20/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
         eager: true,
@@ -18,11 +25,13 @@ loadReveal();
         <div class="reveal">
             <div class="slides">
                 <Cover date="July 20" />
-                <VSection>
-                    <h2>Recap</h2>
-                </VSection>
                 <section>
-                    <HSection text="I." />
+                    <HSection text="I. Recap" />
+                    <Week1 />
+                    <Week2 />
+                    <Week3 />
+                    <Week4 />
+                    <Week5 />
                 </section>
                 <section>
                     <HSection text="II." />

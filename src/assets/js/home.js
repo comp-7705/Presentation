@@ -1,4 +1,4 @@
-import { gallery } from "./utils.js";
+import { gallery } from "./slide.js";
 // Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
     import.meta.glob("../images/Home/*.{png,jpg,jpeg,PNG,JPEG}", {
@@ -29,11 +29,11 @@ for (let i = 0; i < dates.length; i++) {
 }
 
 // Sample slide
-cards.push({
-    id: dates.length + 1,
-    title: "Sample Slide",
-    image: defaultImgUrl,
-    to: "Sample",
-});
+// cards.push({
+//     id: dates.length + 1,
+//     title: "Sample Slide",
+//     image: defaultImgUrl,
+//     to: "Sample",
+// });
 
 export { dates, cards };
