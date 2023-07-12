@@ -183,6 +183,9 @@ loadReveal();
                         <h2>Next Schedule</h2>
                         <Image :src="imgSked" class="w-3/5" />
                     </VSection>
+                    <VSection>
+                        <h2>Experiment</h2>
+                    </VSection>
                 </section>
                 <HSection text="Thank you!" />
             </div>
