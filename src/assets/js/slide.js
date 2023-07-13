@@ -25,7 +25,14 @@ export function loadReveal() {
     // Init Reveal.js after the component is mounted
     onMounted(() => {
         const deck = new Reveal({
-            plugins: [Highlight, Markdown, Search, Notes, Math, Zoom],
+            plugins: [
+                Highlight,
+                Markdown,
+                Search,
+                Notes,
+                Math.KaTeX,
+                Zoom,
+            ],
         });
         deck.initialize({
             history: true,

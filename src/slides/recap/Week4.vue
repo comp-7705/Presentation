@@ -24,7 +24,7 @@ import imgDemo from "@images/July6/demo.png";
                     <Image :src="imgDemo" class="w-full" />
                 </li>
             </ul>
-            <Image :src="imgModel" class="w-7/12" />
+            <Image :src="imgModel" class="h-1/2" />
         </div>
     </VSection>
 </template>

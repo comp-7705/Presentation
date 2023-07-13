@@ -17,6 +17,6 @@ import imgExp4 from "@images/June29/Exp3n4-Acc.png";
                 <span class="red-bold">0.33</span>.
             </li>
         </ul>
-        <Image :src="imgExp4" class="w-2/3" />
+        <Image :src="imgExp4" class="w-1/2" />
     </VSection>
 </template>
