@@ -180,7 +180,7 @@ loadReveal();
                                 :src="videoDemo"
                                 controls
                                 loop
-                                :width="1100"
+                                :width="1200"
                                 class="w-full"
                             />
                         </div>

@@ -187,8 +187,9 @@ loadReveal(); // load reveal.js
                             all subsequent layers.
                         </p>
                         <code>
-                            \begin{align} x_{\ell}=H_{\ell}\left(\left[x_0 ; x_1
-                            ; \ldots ; x_{\ell-1}\right]\right) \end{align}
+                            $$\begin{align*} x_{\ell}=H_{\ell}\left(\left[x_0 ;
+                            x_1 ; \ldots ; x_{\ell-1}\right]\right)
+                            \end{align*}$$
                         </code>
 
                         Here, $H_{\ell}(\cdot)$ denotes a composite function

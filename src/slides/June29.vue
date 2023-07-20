@@ -118,13 +118,15 @@ loadReveal();
                         Reset Gate $R_t$. Update Gate $Z_t$. Candidate hidden
                         state $\tilde{H_t}$. Hidden state $H_t$.
                         <!-- prettier-ignore -->
-                        <code>
+                        <code class="text-xl">
+                            $$
                             \begin{aligned}
                             \mathbf{R}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xr} + \mathbf{H}_{t-1} \mathbf{W}_{hr} + \mathbf{b}_r), \\
                             \mathbf{Z}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xz} + \mathbf{H}_{t-1} \mathbf{W}_{hz} + \mathbf{b}_z), \\
                             \tilde{\mathbf{H}}_t &= \tanh(\mathbf{X}_t \mathbf{W}_{xh} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{hh} + \mathbf{b}_h), \\
                             \mathbf{H}_t &= \mathbf{Z}_t \odot \mathbf{H}_{t-1} + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.
                             \end{aligned}
+                            $$
                         </code>
                         <!-- Hadamard (elementwise) product operator -->
                         <Image :src="im['gru']" class="w-2/3" />

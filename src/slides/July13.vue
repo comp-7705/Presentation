@@ -82,7 +82,6 @@ loadReveal();
                             </li>
                         </ul>
                     </VSection>
-
                     <VSection>
                         <h2>Loss Function</h2>
                         <ul>
