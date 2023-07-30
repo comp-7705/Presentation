@@ -146,7 +146,7 @@ loadReveal();
                                     </ul>
                                 </li>
                             </ul>
-                            <Image :src="im['model']" class="w-7/12" />
+                            <Image :src="im['model']" class="w-5/12" />
                         </div>
                     </VSection>
                     <VSection>
