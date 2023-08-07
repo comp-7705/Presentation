@@ -16,10 +16,18 @@ const defaultImgUrl = `https://via.placeholder.com/${w}x${h}`;
 const dates = ["June 8", "June 15", "June 29", "July 6", "July 13", "July 20"];
 
 let cards = [];
+// Oral examination slide
+cards.push({
+    id: cards.length,
+    title: "August 14, Oral Examination",
+    image: defaultImgUrl,
+    to: "Oral",
+});
+
 for (let i = 0; i < dates.length; i++) {
     const date = dates[i].replaceAll(" ", "");
     const card = {
-        id: i,
+        id: cards.length,
         title: `${dates[i]}, Slide ${i + 1}`,
         // if the image exists, use it, otherwise use the default image
         image: images.hasOwnProperty(date) ? images[date] : defaultImgUrl,

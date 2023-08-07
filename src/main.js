@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { setStyle } from "@js/slide.js";
 import { dates } from "@js/home.js";
 import Sample from "@slides/Sample.vue";
+import Oral from "@slides/Oral.vue";
 
 // Define routes
 const routes = [
@@ -33,6 +34,7 @@ const routes = [
         },
     },
     { path: "/Sample", component: Sample },
+    { path: "/Oral", component: Oral },
 ];
 
 // Dynamically import all slides
