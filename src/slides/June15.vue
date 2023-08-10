@@ -1,12 +1,9 @@
 <script setup>
-import { loadReveal, Cover, HSection, VSection, Image } from "@js/slide.js";
-import { gallery } from "@js/utils.js";
-import imgHMER from "@images/June8/hmer.jpg";
+import { loadReveal, gallery, Week1 } from "@js/slide.js";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
 import videoUrl from "@images/June15/web-demo-video.mp4";
 
-// Import all images from the Home folder, only relative paths here, issue of vite
 const imagePaths = Object.values(
     import.meta.glob("../assets/images/June15/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
         eager: true,
@@ -28,26 +25,7 @@ loadReveal();
         <div class="reveal">
             <div class="slides">
                 <Cover date="June 15" />
-                <VSection>
-                    <h2>Recap</h2>
-                    <ul>
-                        <li>
-                            Handwritten Mathematical Expression Recognition
-                            (HMER): <br />
-                            Images or Trajectories ⇒ Markup Languages like LaTeX
-                            or MathML
-                        </li>
-                        <li>
-                            Sigificance in Education and Research, in Industry
-                            and Business
-                        </li>
-                        <li>
-                            CROHME dataset and State-of-the-art models (BTTR,
-                            SAN, CoMER)
-                        </li>
-                    </ul>
-                    <Image :src="imgHMER" class="w-2/5" />
-                </VSection>
+                <Week1 />
                 <section>
                     <HSection text="I. Failure Case Analysis" />
                     <VSection>
