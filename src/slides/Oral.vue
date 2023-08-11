@@ -255,21 +255,114 @@ loadReveal();
                     <HSection text="II. Related Work" />
                     <VSection>
                         <h2>ResNet</h2>
+                        <ul>
+                            <li>
+                                Residual connections allow additional layers to
+                                simply pass through the input to the output. The
+                                residual mapping can learn the
+                                <span class="red-bold">identity function</span>
+                                more easily, such as pushing parameters in the
+                                weight layer to zero.
+                            </li>
+                            <li>
+                                As a consequence, residual connections allow us
+                                to train much
+                                <span class="red-bold">deeper networks</span>.
+                                Residual connections had a major influence on
+                                the design of subsequent deep neural networks,
+                                both for convolutional and sequential nature.
+                            </li>
+                        </ul>
+                        <Image :src="im['resnet-block']" class="w-3/5" />
                     </VSection>
                     <VSection>
                         <h2>DenseNet</h2>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                In terms of cross-layer connections, unlike ResNet,
+                        where inputs and outputs are added together, DenseNet
+                        <span class="red-bold"> concatenates</span>
+                        inputs and outputs on the channel dimension.
+                            <br/>
+                            <br/>
+                            <br/>
+                            <Image :src="im['resnet&densenet']" class="w-1/1" />
+                            </div>
+                            <div>
+                                <Image :src="im['densenet']" class="w-1/1" />
+                            </div>
+                        </div>
+                    </VSection>
+                    <VSection>
+                        <h2>Feature Pyramid Network (FPN)</h2>
+                        <ul>
+                            <li>
+                                FPN is a feature extractor that takes a
+                                single-scale image of an arbitrary size as
+                                input, and outputs
+                                <span class="red-bold">multi-scale</span>
+                                feature maps at multiple levels.
+                            </li>
+                            <li>
+                                The features maps at different levels are fused
+                                and predictions are made on the fused feature
+                                maps.
+                            </li>
+                        </ul>
+                        <Image :src="im['fpn']" class="w-2/3" />
                     </VSection>
                     <VSection>
                         <h2>PSPNet</h2>
+                        <ul>
+                            <li>
+                                PSPNet introduces the pyramid pooling module,
+                                which empirically proves to be an effective
+                                <span class="red-bold">
+                                    global contextual prior.
+                                </span>
+                                PSPNet uses the Pyramid Pooling Module shown in
+                                (c) to gather context information in feature
+                                maps.
+                            </li>
+                            <li>
+                                Using 4-level pyramid (1, 2, 3, and 6), the
+                                pooling kernels cover the whole, half of, and
+                                small portions of the image. They are fused as
+                                the global priors. Then the global priors are
+                                upsampled and concatenated with the original
+                                feature map.
+                            </li>
+                        </ul>
+                        <Image :src="im['pspnet']" class="w-full" />
                     </VSection>
                     <VSection>
                         <h2>GRU</h2>
-                    </VSection>
-                    <VSection>
-                        <h2>Transformer</h2>
+                        Reset Gate $R_t$. Update Gate $Z_t$. Candidate hidden
+                        state $\tilde{H_t}$. Hidden state $H_t$.
+                        <!-- prettier-ignore -->
+                        <code class="text-xl">
+                            $$
+                            \begin{aligned}
+                            \mathbf{R}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xr} + \mathbf{H}_{t-1} \mathbf{W}_{hr} + \mathbf{b}_r), \\
+                            \mathbf{Z}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xz} + \mathbf{H}_{t-1} \mathbf{W}_{hz} + \mathbf{b}_z), \\
+                            \tilde{\mathbf{H}}_t &= \tanh(\mathbf{X}_t \mathbf{W}_{xh} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{hh} + \mathbf{b}_h), \\
+                            \mathbf{H}_t &= \mathbf{Z}_t \odot \mathbf{H}_{t-1} + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.
+                            \end{aligned}
+                            $$
+                        </code>
+                        <!-- Hadamard (elementwise) product operator -->
+                        <Image :src="im['gru']" class="w-2/3" />
+                        <!-- https://d2l.ai/chapter_recurrent-modern/gru.html -->
                     </VSection>
                     <VSection>
                         <h2>BTTR</h2>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                Unlike traditional Transformer models that rely on training in single direction, BTTR incorporated bidirectional training method, which allows the model to consider both past (left-to-right) and future (right-to-left) context when processing a given input sequence.
+                            </div>
+                            <div><img :src="im['bttr']" class="w-3/5" /></div>
+                        </div>
+                        
                     </VSection>
                     <VSection>
                         <h2>SAN</h2>
@@ -279,6 +372,21 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>CAN</h2>
+                        <ul>
+                            <li>
+                                Regression-based methods: To learn counting by
+                                regressing a
+                                <span class="red-bold">density map</span>, and
+                                the predicted count equals the integration of
+                                the density map.
+                            </li>
+                            <li>
+                                Multi-scale counting model(MSCM) is designed
+                                based on regression-based method, used to
+                                predict the number of each symbol class.
+                            </li>
+                        </ul>
+                        <Image :src="im['CAN']" class="w-2/3" />
                     </VSection>
                 </section>
                 <section>
