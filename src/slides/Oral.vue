@@ -133,10 +133,33 @@ loadReveal();
                         <Image class="w-1/3" :src="im['digitization']" />
                     </VSection>
                     <VSection>
+                        <h2>Online & Offline Recognition</h2>
+                        
+                            <div>
+                                <ul>
+                                <li>
+                                Online Recognition:classify symbols in the captured <span class="text-red-600">dynamic trajectories</span>,
+                                including both <span class="text-red-600">time</span> and <span class="text-red-600">space</span> information
+                                </li>
+                                <li>
+                                Offline Recognition: segment,analysis and then classify symbols in <span class="text-red-600">static images</span>
+                                </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <Image
+                                :src="im['online_offline']"
+                                alt="online_offline"
+                                />
+                            </div>
+                        
+                        
+                    </VSection>
+                    <VSection>
                         <h2>Workflow: Tradition vs Encoder-decoder</h2>
                         <Image
                             :src="im['tradition']"
-                            alt="workflow"
+                            alt="tradition"
                             class="w-3/5"
                         />
                         <Image
@@ -230,21 +253,84 @@ loadReveal();
                 </section>
                 <section>
                     <HSection text="II. Related Work" />
+                    <VSection>
+                        <h2>ResNet</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>DenseNet</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>PSPNet</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>GRU</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Transformer</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>BTTR</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>SAN</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>CoMER</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>CAN</h2>
+                    </VSection>
                 </section>
                 <section>
                     <HSection text="III. Methodology" />
+                    <VSection>
+                        <h2>Encoder</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Decoder</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Loss Function</h2>
+                    </VSection>
                 </section>
                 <section>
                     <HSection text="IV. CROHME Dataset" />
+                    <VSection>
+                        <h2>Introduction</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Failure Cases Analysis</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Data Distribution</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Data Augmentation</h2>
+                    </VSection>
                 </section>
                 <section>
                     <HSection text="V. Experimental Results" />
                 </section>
                 <section>
                     <HSection text="VI. System Demonstration" />
+                    <VSection>
+                        <h2>User Interface Design</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Data Preprocessing</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Model Deployment</h2>
+                    </VSection>
                 </section>
                 <section>
                     <HSection text="VII. Conclusion and Future Work" />
+                    <VSection>
+                        <h2>Research</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>System</h2>
+                    </VSection>
                 </section>
                 <VSection>
                     <h2>Individual Contribution</h2>
