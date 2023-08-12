@@ -425,13 +425,67 @@ loadReveal();
                 <section>
                     <HSection text="III. Methodology" />
                     <VSection>
-                        <h2>Encoder</h2>
+                        <h2>Overview</h2>
+                        <Image :src="im['structure-overview']" class="w-2/3" />
                     </VSection>
                     <VSection>
-                        <h2>Decoder</h2>
+                        <h2>Encoder</h2>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <h4>DenseNet161</h4>
+                                <Image :src="im['densenet161']" class="w-2/3" />
+                            </div>
+                            <div>
+                                <h4>ResNet152</h4>
+                                <Image :src="im['resnet152']" class="w-full" />
+                            </div>
+                        </div>  
+                    </VSection>
+                    <VSection>
+                        <h2>Encoder</h2>
+                            <h3>Pyramid Pooling Module</h3>
+                            Pyramid Pooling Module (PPM) plays an important role in capturing multi-scale information from the feature maps, it pools the feature maps into multiple scales. <br/>This enables the module to gather contextual information of varying scales, effectively capturing both local and global context.       
+                            <Image :src="im['pspnet']" class="w-full" />            
+                    </VSection>
+                    <VSection>
+                        <h2>Encoder</h2>
+                            Positional Encoding is a mechanism that injects spatial information into the feature representation by encoding the relative positions of elements within the sequence. 
+                            <br/><br/>This allows the model to capture the positional relationships between different elements, which is particularly important in tasks involving sequential data. To get two-dimensional positional encoding on images, we compute the one-dimensional positional encoding along each axis, and concatenate them together.
+                    </VSection>
+                    <VSection>
+                        <h2>Decoder:Self Attention</h2>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <Image :src="im['QKV']" class="w-full" />
+                                <ul>
+                                    <li>Decoder self-attention involves computing the similarity between the Query and Key embeddings, which determines <span class="red-bold">how much attention should be given to each Value embedding</span>. </li>
+                                    <li>Once the self-attention weights are obtained, they are used to weight the Value embeddings. This weighted combination of Value embeddings represents the context or information that the <span class="red-bold">Decoder needs to focus on the LaTeX sequence</span>.</li>
+                                </ul>
+                            </div>
+                            <div><Image :src="im['model']" class="w-1/2" style="margin: auto;"/></div>
+                        </div>
+                    </VSection>
+                    <VSection>
+                        <h2>Decoder:Encoder-Decoder Attention</h2>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <Image :src="im['QKV']" class="w-full" />
+                                <ul>
+                                    <li>The Query is obtained from the output of the <span class="red-bold">Decoder's self-attention layer</span>, which captures the context information so far.   </li>
+                                    <li>The Key and Value, on the other hand, are obtained from the <span class="red-bold">output of the Encoder</span>.</li>
+                                </ul>
+                            </div>
+                            <div><Image :src="im['model']" class="w-1/2" style="margin: auto;"/></div>
+                        </div>
                     </VSection>
                     <VSection>
                         <h2>Loss Function</h2>
+                        Loss function equals to common used cross entropy loss combined with L1 regression loss
+                        <br/><br/><br/>
+                        <Image :src="im['loss-function1']" class="w-1/3" />  
+                        <Image :src="im['loss-function2']" class="w-2/5" />  
+                        <Image :src="im['loss-function3']" class="w-2/3" />
+                           
                     </VSection>
                 </section>
                 <section>
