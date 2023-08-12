@@ -261,8 +261,8 @@ loadReveal();
                                 simply pass through the input to the output. The
                                 residual mapping can learn the
                                 <span class="red-bold">identity function</span>
-                                more easily, such as pushing parameters in the
-                                weight layer to zero.
+                                more easily.
+                                <Image :src="im['resnet-formation']" class="w-1/5" />
                             </li>
                             <li>
                                 As a consequence, residual connections allow us
@@ -273,7 +273,7 @@ loadReveal();
                                 both for convolutional and sequential nature.
                             </li>
                         </ul>
-                        <Image :src="im['resnet-block']" class="w-3/5" />
+                        <Image :src="im['resnet-block']" class="w-2/5" />
                     </VSection>
                     <VSection>
                         <h2>DenseNet</h2>
@@ -334,25 +334,6 @@ loadReveal();
                             </li>
                         </ul>
                         <Image :src="im['pspnet']" class="w-full" />
-                    </VSection>
-                    <VSection>
-                        <h2>GRU</h2>
-                        Reset Gate $R_t$. Update Gate $Z_t$. Candidate hidden
-                        state $\tilde{H_t}$. Hidden state $H_t$.
-                        <!-- prettier-ignore -->
-                        <code class="text-xl">
-                            $$
-                            \begin{aligned}
-                            \mathbf{R}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xr} + \mathbf{H}_{t-1} \mathbf{W}_{hr} + \mathbf{b}_r), \\
-                            \mathbf{Z}_t &= \sigma(\mathbf{X}_t \mathbf{W}_{xz} + \mathbf{H}_{t-1} \mathbf{W}_{hz} + \mathbf{b}_z), \\
-                            \tilde{\mathbf{H}}_t &= \tanh(\mathbf{X}_t \mathbf{W}_{xh} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{hh} + \mathbf{b}_h), \\
-                            \mathbf{H}_t &= \mathbf{Z}_t \odot \mathbf{H}_{t-1} + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.
-                            \end{aligned}
-                            $$
-                        </code>
-                        <!-- Hadamard (elementwise) product operator -->
-                        <Image :src="im['gru']" class="w-2/3" />
-                        <!-- https://d2l.ai/chapter_recurrent-modern/gru.html -->
                     </VSection>
                     <VSection>
                         <h2>BTTR</h2>
