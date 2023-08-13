@@ -550,9 +550,44 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Data Distribution</h2>
+                        <div class="grid grid-cols-2">
+                          <Image
+                              :src="im['token-distri']"
+                              class="inline w-2/3"
+                          />
+                          <Image
+                              :src="im['train-len-distri']"
+                              class="inline w-2/3"
+                          />
+                          <Image
+                              :src="im['train-h-distri']"
+                              class="inline w-2/3"
+                          />
+                          <Image
+                              :src="im['train-w-distri']"
+                              class="inline w-2/3"
+                          />
+                        </div>
                     </VSection>
                     <VSection>
                         <h2>Failure Cases Analysis</h2>
+                        <ul>
+                          <li>
+                            Label Length Distribution: SAN,BTTR and CoMER are
+                            particularly susceptible to failures when the label
+                            length is either
+                            <span class="red-bold"> 4, 14, or 16. </span>
+                          </li>
+                          <li>
+                            Symbol Recognition Failures: All models lack context
+                            awareness.
+                          </li>
+                          <li>
+                            Structure Recognition Failures:
+                            <span class="red-bold">CoMER</span>
+                            wins out from all models.
+                          </li>
+                        </ul>
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
