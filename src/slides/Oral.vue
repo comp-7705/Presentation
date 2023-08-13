@@ -588,6 +588,10 @@ loadReveal();
                             wins out from all models.
                           </li>
                         </ul>
+                        <Image
+                            :src="im['fail-label-len']"
+                            class="pt-10 w-full"
+                        />
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
