@@ -473,12 +473,86 @@ loadReveal();
                     <HSection text="IV. CROHME Dataset" />
                     <VSection>
                         <h2>Introduction</h2>
-                    </VSection>
-                    <VSection>
-                        <h2>Failure Cases Analysis</h2>
+                        <div class="flex mb-10">
+                          <p class="w-3/5">
+                            CROHME:
+                            <span class="text-red-600">C</span>ompetition on
+                            <span class="text-red-600">R</span>ecognition of
+                            <span class="text-red-600">O</span>nline
+                            <span class="text-red-600">H</span>andwritten
+                            <span class="text-red-600">M</span>athematical
+                            <span class="text-red-600">E</span>xpressions,
+                            which currently is most widely used benchmark
+                            dataset for HMER.
+                          </p>
+                          <table
+                              class="table-auto text-xl border-2 border-slate-300"
+                          >
+                            <thead>
+                            <tr>
+                              <th
+                                  class="border-2 border-slate-300"
+                              ></th>
+                              <th class="border-2 border-slate-300">
+                                Number of Images
+                              </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td class="border-2 border-slate-300">
+                                Training Set
+                              </td>
+                              <td class="border-2 border-slate-300">
+                                8835
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="border-2 border-slate-300">
+                                Test 2014
+                              </td>
+                              <td class="border-2 border-slate-300">
+                                986
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="border-2 border-slate-300">
+                                Test 2016
+                              </td>
+                              <td class="border-2 border-slate-300">
+                                1147
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="border-2 border-slate-300">
+                                Test 2019
+                              </td>
+                              <td class="border-2 border-slate-300">
+                                1199
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="border-2 border-slate-300">
+                                Total Test Set
+                              </td>
+                              <td class="border-2 border-slate-300">
+                                3332
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <Image
+                            :src="im['dataset']"
+                            alt="dataset"
+                            class="w-3/4"
+                        />
                     </VSection>
                     <VSection>
                         <h2>Data Distribution</h2>
+                    </VSection>
+                    <VSection>
+                        <h2>Failure Cases Analysis</h2>
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
