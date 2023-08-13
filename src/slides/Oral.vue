@@ -883,9 +883,17 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Data Preprocessing</h2>
+                        <div style="margin:auto">
+                            <ol>
+                                <li><span class="red-bold">Image truncation</span>: As the drawing canvas has a fixed dimension, if the user is only using a small amount of provided space in the canvas to handwrite the mathematical expression, the resulted image will contain a large portion of empty area, which will compromise the model performance and reduce the inference speed.</li>
+                                <li><span class="red-bold">Image resizing</span>: As the drawing canvas has a large frame dimension, the resulted image will have a huge size.Directly inputting the image to the model will drastically reduce the inference efficiency. </li>
+                                <li><span class="red-bold">Pixel transformation</span>: Since the image returned from the drawing canvas is stored in RGBA color format, it has to be transformed to grayscale as required by the model.The values of white foreground pixels are converted into 1 (or 255 in 8-bit color), while the values of black background pixels are turned to 0.</li>
+                            </ol>
+                        </div>
                     </VSection>
                     <VSection>
                         <h2>Model Deployment</h2>
+                        <img :src="im['workflow-HMER']" class="w-2/3" style="margin:auto"/>
                     </VSection>
                 </section>
                 <section>
