@@ -871,6 +871,7 @@ loadReveal();
                     <HSection text="VI. System Demonstration" />
                     <VSection>
                         <h2>User Interface Design</h2>
+
                     </VSection>
                     <VSection>
                         <h2>Data Preprocessing</h2>
@@ -889,7 +890,27 @@ loadReveal();
                     </VSection>
                 </section>
                 <VSection>
+                    <h2>Task List</h2>
+                    <ol>
+                        <li>Reading survey and state-of-the-art papers of HMER</li>
+                        <li>Collecting dataset and preprocessing</li>
+                        <li>Dataset analysis</li>
+                        <li>Read relevant papers and test datasets on open source code</li>
+                        <li>Analyzing the failure cases of state-of-the-art models</li>
+                        <li>Developing and deploying project website</li>
+                        <li>Designing a novel model and propose new method</li>
+                        <li>Testing the model on the dataset, fixing bugs and constantly trying to improve accuracy</li>
+                        <li>Deploying the final model to the back end</li>
+                        <li>Keeping the project website updated</li>
+                        <li>Write final report and prepare oral examination</li>
+                    </ol>
+                </VSection>
+                <VSection>
                     <h2>Individual Contribution</h2>
+                    <img
+                        :src="im['contribution-table']"
+                        class="w-full"
+                    />
                 </VSection>
                 <HSection text="Thank you!" />
             </div>
