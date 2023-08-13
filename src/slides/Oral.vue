@@ -1,8 +1,8 @@
 <script setup>
 import { loadReveal, gallery } from "@js/slide.js";
-// import { VideoPlayer } from "@videojs-player/vue";
-// import "video.js/dist/video-js.css";
-// import videoUrl from "@images/July6/demo-video.mp4";
+import { VideoPlayer } from "@videojs-player/vue";
+import "video.js/dist/video-js.css";
+import videoUrl from "@images/Oral/demo-video.mp4";
 
 const imagePaths = Object.values(
     import.meta.glob("../assets/images/Oral/*.{png,jpg,jpeg,PNG,JPEG,svg}", {
@@ -12,10 +12,10 @@ const imagePaths = Object.values(
 );
 const im = gallery(imagePaths);
 
-// let videoDemo = videoUrl;
-// if (import.meta.env.DEV) {
-//     videoDemo = videoDemo.replace("@fs/", ""); // remove @fs
-// }
+let videoDemo = videoUrl;
+if (import.meta.env.DEV) {
+    videoDemo = videoDemo.replace("@fs/", ""); // remove @fs
+}
 
 loadReveal();
 </script>
@@ -870,8 +870,16 @@ loadReveal();
                 <section>
                     <HSection text="VI. System Demonstration" />
                     <VSection>
-                        <h2>User Interface Design</h2>
-
+                        <h2>Demo Video</h2>
+                        <div class="flex justify-center">
+                            <VideoPlayer
+                                :src="videoDemo"
+                                controls
+                                loop
+                                :width="1200"
+                                class="w-full"
+                            />
+                        </div>
                     </VSection>
                     <VSection>
                         <h2>Data Preprocessing</h2>
