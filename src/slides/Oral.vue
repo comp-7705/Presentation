@@ -592,6 +592,8 @@ loadReveal();
                             :src="im['fail-label-len']"
                             class="pt-10 w-full"
                         />
+                      <Image :src="im['symbol-case']" class="w-3/5" />
+                      <Image :src="im['struct-case']" class="w-4/5" />
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
