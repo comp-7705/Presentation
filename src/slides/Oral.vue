@@ -599,6 +599,10 @@ loadReveal();
                             :src="im['aug-model']"
                             class="pt-10 w-full"
                         />
+                        <Image :src="im['symbol-case']" class="w-3/5" />
+                        <Image :src="im['symbol-tab']" class="w-full" />
+                        <Image :src="im['struct-case']" class="w-4/5" />
+                        <Image :src="im['struct-tab']" class="w-full" />
                     </VSection>
                 </section>
                 <section>
