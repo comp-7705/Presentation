@@ -607,6 +607,265 @@ loadReveal();
                 </section>
                 <section>
                     <HSection text="V. Experimental Results" />
+                    <VSection>
+                        <h2>DenseNet & ResNet</h2>
+                        <strong>Comparison Tables</strong>
+                        <p>Training setting:</p>
+                        <table class="table-auto border-y-2 border-black">
+                            <thead>
+                                <tr>
+                                    <th>No. Exp</th>
+                                    <th>Encoder</th>
+                                    <th>Decoder</th>
+                                    <th>Epoch</th>
+                                    <th>Learning Rate</th>
+                                    <th>Batch Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,2</td>
+                                    <td>ResNet-152</td>
+                                    <td>GRU+Attention</td>
+                                    <td>50</td>
+                                    <td>1e-4</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>3,4</td>
+                                    <td>DenseNet-161</td>
+                                    <td>GRU+Attention</td>
+                                    <td>100</td>
+                                    <td>1e-4</td>
+                                    <td>8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Loss:</p>
+                        <table class="table-auto border-y-2 border-black">
+                            <thead>
+                                <tr>
+                                    <th>No. Exp</th>
+                                    <th>Training</th>
+                                    <th>2014</th>
+                                    <th>2016</th>
+                                    <th>2019</th>
+                                    <th>Validation (Total)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,2</td>
+                                    <td>2.565</td>
+                                    <td>3.063</td>
+                                    <td>3.106</td>
+                                    <td>2.974</td>
+                                    <td>3.048</td>
+                                </tr>
+                                <tr>
+                                    <td>3,4</td>
+                                    <td>2.553</td>
+                                    <td>2.955</td>
+                                    <td>2.948</td>
+                                    <td>2.854</td>
+                                    <td>2.919</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </VSection>
+                    <VSection>
+                        <h2>DenseNet & ResNet</h2>
+                        <strong>Comparison Table</strong>
+                        <p>Accuracy (%) on CROHME dataset:</p>
+                        <table class="table-auto border-y-2 border-black">
+                            <thead>
+                                <tr>
+                                    <th>No. Exp</th>
+                                    <th>Training</th>
+                                    <th>2014</th>
+                                    <th>2016</th>
+                                    <th>2019</th>
+                                    <th>Validation (Total)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,2</td>
+                                    <td>95.90</td>
+                                    <td>25.92</td>
+                                    <td>24.32</td>
+                                    <td>27.53</td>
+                                    <td>25.92</td>
+                                </tr>
+                                <tr>
+                                    <td>3,4</td>
+                                    <td>99.22</td>
+                                    <td>33.84</td>
+                                    <td>33.18</td>
+                                    <td>32.36</td>
+                                    <td>33.13</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </VSection>
+                    <VSection>
+                        <h2>DenseNet & ResNet</h2>
+                        <strong>Accuracy Curves</strong>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                Experiment 1 & 2
+                                <Image :src="im['Exp1n2-Acc']" class="w-full" />
+                            </div>
+                            <div>
+                                Experiment 3 & 4
+                                <Image :src="im['Exp3n4-Acc']" class="w-full" />
+                            </div>
+                        </div>
+                    </VSection>
+                    <VSection>
+                        <h2>DenseNet & ResNet</h2>
+                        <strong>Loss Curves</strong>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                Experiment 1 & 2
+                                <Image
+                                    :src="im['Exp1n2-Loss']"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div>
+                                Experiment 3 & 4
+                                <Image
+                                    :src="im['Exp3n4-Loss']"
+                                    class="w-full"
+                                />
+                            </div>
+                        </div>
+                    </VSection>
+                    <VSection>
+                        <h2>Experiments with/without PSPNet</h2>
+                        <ul>
+                            <li>
+                                All the experiments are conduted on HKU GPU
+                                Farm, including NVIDIA RTX 2080Ti, RTX 3090.
+                            </li>
+                            <li>
+                                Experiment 1: DenseNet + Pyramid Pooling Module
+                                + Transformer
+                                <div class="grid grid-cols-4 text-2xl">
+                                    <div>
+                                        Epoch
+                                        <img
+                                            :src="im['exp1-epoch']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Training loss
+                                        <img
+                                            :src="im['exp1-train-loss']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Validation loss
+                                        <img
+                                            :src="im['exp1-val-loss']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Validation accuracy:
+                                        <span class="red-bold">0.60</span>
+                                        <img
+                                            :src="im['exp1-val-acc']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                Experiment 2: DenseNet + Transformer
+                                <div class="grid grid-cols-4 text-2xl">
+                                    <div>
+                                        Epoch
+                                        <img
+                                            :src="im['exp2-epoch']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Training loss
+                                        <img
+                                            :src="im['exp2-train-loss']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Validation loss
+                                        <img
+                                            :src="im['exp2-val-loss']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                    <div>
+                                        Validation accuracy:
+                                        <span class="red-bold">0.61</span>
+                                        <img
+                                            :src="im['exp2-val-acc']"
+                                            class="w-full"
+                                        />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                Validation accuracy of the state-of-the-art
+                                models is around
+                                <span class="red-bold">0.59</span>.
+                            </li>
+                        </ul>
+                    </VSection>
+                    <VSection class="text-2xl">
+                        <h2>Without Counting Vector in Decoder</h2>
+                        <div class="grid grid-cols-3">
+                            <div>
+                                Epoch
+                                <img :src="im['epoch']" class="w-full" />
+                            </div>
+                            <div>
+                                Training loss
+                                <img :src="im['train-loss']" class="w-full" />
+                            </div>
+                            <div>
+                                Validation loss
+                                <img :src="im['val-loss']" class="w-full" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-5">
+                            <div class="col-span-3">
+                                Validation accuracy:
+                                <span class="red-bold">0.597</span>
+                                <img :src="im['val-acc']" class="w-full" />
+                            </div>
+                            <div class="col-span-2">
+                                <p>Problems:</p>
+                                <ul>
+                                    <li>A sharp increse in validation loss.</li>
+                                    <li>
+                                        Validation accuracy is slightly less
+                                        than experiments done in the last week
+                                        (0.60).
+                                    </li>
+                                </ul>
+                                <p>
+                                    Reason: We only back-propagate counting loss
+                                    from the encoder without putting the
+                                    counting vector into the decoder.
+                                </p>
+                            </div>
+                        </div>
+                    </VSection>
                 </section>
                 <section>
                     <HSection text="VI. System Demonstration" />
