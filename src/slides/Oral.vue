@@ -595,6 +595,10 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
+                        <Image
+                            :src="im['aug-model']"
+                            class="pt-10 w-full"
+                        />
                     </VSection>
                 </section>
                 <section>
