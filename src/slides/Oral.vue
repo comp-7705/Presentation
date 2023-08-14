@@ -416,7 +416,7 @@ loadReveal();
                                 <br />
                                 <img
                                     :src="im['san-parsing']"
-                                    class="w-2/1"
+                                    class="w-full"
                                     style="margin: auto"
                                 />
                             </div>
@@ -895,7 +895,7 @@ loadReveal();
                         </ul>
                     </VSection>
                     <VSection class="text-2xl">
-                        <h2>Without Counting Vector in Decoder</h2>
+                        <h2>Counting Module</h2>
                         <div class="grid grid-cols-3">
                             <div>
                                 Training loss
@@ -923,7 +923,8 @@ loadReveal();
                                 <li>A sharp increse in validation loss.</li>
                                 <li>
                                     Validation accuracy is slightly less than
-                                    experiments done in the last week (0.60).
+                                    experiments done in the last experiment
+                                    (60%).
                                 </li>
                             </ul>
                             <p>Reason:</p>
