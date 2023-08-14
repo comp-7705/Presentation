@@ -597,7 +597,11 @@ loadReveal();
                     </VSection>
                     <VSection>
                         <h2>Data Augmentation</h2>
-                        <Image
+                        <ul>
+                          <li>Defects in the current dataset: unbalanced data distribution and small sample size</li>
+                          <li>Key steps for image augmentation: Extract (x, y) Coordinates, Local Distortion and Global Distortion</li>
+                        </ul>
+                      <Image
                             :src="im['aug-model']"
                             class="pt-10 w-full"
                         />
