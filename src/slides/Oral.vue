@@ -901,10 +901,56 @@ loadReveal();
                 <section>
                     <HSection text="VII. Conclusion and Future Work" />
                     <VSection>
-                        <h2>Research</h2>
+                        <h2>Conclusion</h2>
+                        <ul>
+                            <li>Dataset</li>
+                            <ul>
+                                <li>CROHME offline datset</li>
+                                <li>Data preprocessing, data analysis, failure cases analysis</li>
+                                <li>Data augumentation</li>
+                            </ul>
+
+                            <li>Methodology</li>
+                            <ul>
+                                <li>Research on Sota</li>
+                                <li>Encoder: DenseNet + Pyramid Pooling Module</li>
+                                <li>Decoder: Transformer</li>
+                                <li>Loss function: Object Counting</li>
+                            </ul>
+                            
+                            <li>System</li>
+                            <ul>
+                                <li>FastAPI</li>
+                            </ul>
+                        </ul>
                     </VSection>
                     <VSection>
-                        <h2>System</h2>
+                        <h2>Future Work</h2>
+                        <ol>
+                            <li>Focus on attention mechanisms</li>
+                            <ul>
+                                <li>Use multi-attention, self-attention or cross-model attention to achieve effective communication between different components.</li>
+                            </ul>
+
+                            <li>Diverse Dataset Expansion</li>
+                            <ul>
+                                <li>Use different data augumentation techniques to increase the diversity of the dataset.</li>
+                            </ul>
+
+                            <li>Semi-Supervised and Unsupervised Learning</li>
+                            <ul>
+                                <li>Unsupervised learning is more suitable for the case where there is little labelled data.</li>
+                                <li>Semi-supervised techniques can generate pseudo-labels using plausible predictions from models for unlabelled data.</li>
+                            </ul>
+
+                            <li>Attention Mechanism Refinement</li>
+                            <ul>
+                                <li>Explore mechanisms such as multilevel attention.</li>
+                                <li>Explore visualisation techniques such as Grad-CAM or Attention Heat Mapping, investigating the interpretability of attentional weights such as heat maps</li>
+                            </ul>
+
+                            <li>Real-Time and Deployment</li>
+                        </ol>
                     </VSection>
                 </section>
                 <VSection>
