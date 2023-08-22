@@ -20,7 +20,7 @@ let cards = [];
 cards.push({
     id: cards.length,
     title: "August 14, Oral Examination",
-    image: defaultImgUrl,
+    image: images["Oral"],
     to: "Oral",
 });
 

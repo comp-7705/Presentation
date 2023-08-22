@@ -40,6 +40,30 @@ loadReveal();
                             <p>Supervisor: Dr. Hengshuang Zhao</p>
                             <p>Aug 14</p>
                         </div>
+                        <div class="text-left ml-20 mt-20 text-xl">
+                            <ol>
+                                <li>
+                                    Project GitHub:
+                                    <a
+                                        href="https://github.com/orgs/comp-7705/repositories"
+                                        >https://github.com/orgs/comp-7705/repositories</a
+                                    >
+                                </li>
+                                <li>
+                                    Status presentation:
+                                    <a
+                                        href="https://comp-7705.github.io/Presentation/"
+                                        >https://comp-7705.github.io/Presentation/</a
+                                    >
+                                </li>
+                                <li>
+                                    Project webpage:
+                                    <a href="https://wp.cs.hku.hk/2022/msp22015"
+                                        >https://wp.cs.hku.hk/2022/msp22015</a
+                                    >
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </section>
                 <section>
@@ -283,7 +307,7 @@ loadReveal();
                 <section>
                     <HSection text="II. Related Work" />
                     <VSection>
-                        <h2>ResNet</h2>
+                        <h2>Residual Network (ResNet)</h2>
                         <ul>
                             <li>
                                 Residual connections allow additional layers to
@@ -308,7 +332,10 @@ loadReveal();
                         <Image :src="im['resnet-block']" class="w-2/5" />
                     </VSection>
                     <VSection>
-                        <h2>DenseNet</h2>
+                        <h2>
+                            Densely Connected Convolutional Neural Network
+                            (DenseNet)
+                        </h2>
                         <div class="grid grid-cols-2">
                             <div>
                                 In terms of cross-layer connections, unlike
@@ -348,7 +375,7 @@ loadReveal();
                         <Image :src="im['fpn']" class="w-2/3" />
                     </VSection>
                     <VSection>
-                        <h2>PSPNet</h2>
+                        <h2>Pyramid Scene Parsing Network (PSPNet)</h2>
                         <ul>
                             <li>
                                 PSPNet introduces the pyramid pooling module,
@@ -372,7 +399,7 @@ loadReveal();
                         <Image :src="im['pspnet']" class="w-full" />
                     </VSection>
                     <VSection>
-                        <h2>BTTR</h2>
+                        <h2>Bidirectionally Trained TRansformer (BTTR)</h2>
                         <div class="grid grid-cols-2">
                             <div>
                                 Unlike traditional Transformer models that rely
@@ -401,7 +428,7 @@ loadReveal();
                         </div>
                     </VSection>
                     <VSection>
-                        <h2>SAN</h2>
+                        <h2>Syntax Aware Network (SAN)</h2>
                         <div class="grid grid-cols-2">
                             <div>
                                 The inspiration of SAN comes from linguistic
@@ -430,7 +457,7 @@ loadReveal();
                         </div>
                     </VSection>
                     <VSection>
-                        <h2>CoMER</h2>
+                        <h2>Coverage information in the transforMER (CoMER)</h2>
                         <div class="grid grid-cols-2">
                             <div>
                                 <ul>
@@ -464,7 +491,7 @@ loadReveal();
                         </div>
                     </VSection>
                     <VSection>
-                        <h2>CAN</h2>
+                        <h2>Counting Aware Network (CAN)</h2>
                         <ul>
                             <li>
                                 Regression-based methods: To learn counting by
@@ -1049,52 +1076,60 @@ loadReveal();
                     <VSection>
                         <h2>Future Work</h2>
                         <ol>
-                            <li>Focus on attention mechanisms</li>
-                            <ul>
-                                <li>
-                                    Use multi-attention, self-attention or
-                                    cross-model attention to achieve effective
-                                    communication between different components.
-                                </li>
-                            </ul>
-
-                            <li>Diverse Dataset Expansion</li>
-                            <ul>
-                                <li>
-                                    Use different data augumentation techniques
-                                    to increase the diversity of the dataset.
-                                </li>
-                            </ul>
-
-                            <li>Semi-Supervised and Unsupervised Learning</li>
-                            <ul>
-                                <li>
-                                    Unsupervised learning is more suitable for
-                                    the case where there is little labelled
-                                    data.
-                                </li>
-                                <li>
-                                    Semi-supervised techniques can generate
-                                    pseudo-labels using plausible predictions
-                                    from models for unlabelled data.
-                                </li>
-                            </ul>
-
-                            <li>Attention Mechanism Refinement</li>
-                            <ul>
-                                <li>
-                                    Explore mechanisms such as multilevel
-                                    attention.
-                                </li>
-                                <li>
-                                    Explore visualisation techniques such as
-                                    Grad-CAM or Attention Heat Mapping,
-                                    investigating the interpretability of
-                                    attentional weights such as heat maps
-                                </li>
-                            </ul>
-
-                            <li>Real-Time and Deployment</li>
+                            <li>
+                                Focus on attention mechanisms
+                                <ul>
+                                    <li>
+                                        Use multi-attention, self-attention or
+                                        cross-model attention to achieve
+                                        effective communication between
+                                        different components.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Diverse dataset expansion
+                                <ul>
+                                    <li>
+                                        Use different data augumentation
+                                        techniques to increase the diversity of
+                                        the dataset.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Semi-supervised and unsupervised learning
+                                <ul>
+                                    <li>
+                                        Unsupervised learning is more suitable
+                                        for the case where there is little
+                                        labelled data.
+                                    </li>
+                                    <li>
+                                        Semi-supervised techniques can generate
+                                        pseudo-labels using plausible
+                                        predictions from models for unlabelled
+                                        data.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Attention mechanism refinement</li>
+                            <li>Real-Time and deployment</li>
+                            <li>
+                                Intergrate Large Language Models (LLMs) such as
+                                ChatGPT in the decoder
+                                <ul>
+                                    <li>
+                                        LLMs is pretrained with a large amount
+                                        of data including LaTeX sequences.
+                                    </li>
+                                    <li>
+                                        Freeze the LLMs weights, only fine-tune
+                                        the encoder for extracting image
+                                        features.
+                                    </li>
+                                </ul>
+                            </li>
                         </ol>
                     </VSection>
                 </section>
