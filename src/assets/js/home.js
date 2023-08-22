@@ -16,6 +16,13 @@ const defaultImgUrl = `https://via.placeholder.com/${w}x${h}`;
 const dates = ["June 8", "June 15", "June 29", "July 6", "July 13", "July 20"];
 
 let cards = [];
+cards.push({
+    id: cards.length,
+    title: "Demonstration Video",
+    image: images["Demo"],
+    to: "Demo",
+});
+
 // Oral examination slide
 cards.push({
     id: cards.length,

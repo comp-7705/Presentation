@@ -2,7 +2,7 @@
 import { loadReveal, gallery } from "@js/slide.js";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
-import videoUrl from "@images/Oral/demo-video.mp4";
+import videoUrl from "@images/July6/demo-video.mp4";
 
 const imagePaths = Object.values(
     import.meta.glob("../assets/images/Oral/*.{png,jpg,jpeg,PNG,JPEG,svg}", {

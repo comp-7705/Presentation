@@ -9,6 +9,7 @@ import { cards } from "@js/home.js";
         <Header />
         <div class="flex flex-wrap justify-center">
             <div v-for="card in cards" :key="card.id" class="w-5/12 m-4">
+                <!-- <router-link :to="card.to" target="_blank"> -->
                 <router-link :to="card.to">
                     <Card :card="card" />
                 </router-link>
